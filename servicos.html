@@ -1,0 +1,1280 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conheça o portfólio completo da PROTEÇÃO: SST, Engenharia, Meio Ambiente e EPIs. Soluções integradas em Vilhena-RO para RO, MT e AC.">
+  <title>Nossos Serviços — PROTEÇÃO Soluções em Segurança do Trabalho</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Inter', sans-serif; color: #1a1a1a; background: #fefefe; line-height: 1.6; overflow-x: hidden; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font: inherit; }
+    address { font-style: normal; }
+    :root {
+      --green-700: oklch(37% 0.17 145); --green-600: oklch(44% 0.19 148); --green-500: oklch(54% 0.20 150);
+      --green-400: oklch(62% 0.18 152); --green-300: oklch(74% 0.14 152); --green-200: oklch(86% 0.08 148);
+      --green-100: oklch(94% 0.05 148); --green-50: oklch(97% 0.02 148);
+      --gray-950: oklch(8% 0 0); --gray-800: oklch(20% 0 0); --gray-700: oklch(30% 0 0);
+      --gray-600: oklch(42% 0 0); --gray-400: oklch(64% 0 0); --gray-300: oklch(74% 0 0);
+      --gray-150: oklch(91% 0 0); --gray-100: oklch(95% 0 0); --gray-50: oklch(97.5% 0 0); --white: oklch(99.5% 0 0);
+      --fh: 'Barlow Condensed', sans-serif; --fb: 'Inter', sans-serif;
+      --wrap: 1200px; --gutter: clamp(1.25rem, 5vw, 2.5rem); --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+    .site-header { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--gray-150); transition: box-shadow 0.2s; }
+    .site-header.scrolled { box-shadow: 0 2px 20px oklch(0% 0 0 / 10%); }
+    .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 4.5rem; }
+    .site-logo img { height: 40px; width: auto; display: block; }
+    .site-nav { display: none; align-items: center; gap: 0.25rem; }
+    @media (min-width: 900px) { .site-nav { display: flex; } }
+    .site-nav a { padding: 0.4rem 0.875rem; border-radius: 6px; font-size: 0.875rem; font-weight: 500; color: var(--gray-700); transition: background 0.15s, color 0.15s; position: relative; }
+    .site-nav a:hover { background: var(--green-50); color: var(--green-700); }
+    .site-nav a[aria-current="page"] { color: var(--green-700); font-weight: 600; }
+    .site-nav a[aria-current="page"]::after { content: ''; position: absolute; bottom: 0; left: 0.875rem; right: 0.875rem; height: 2px; background: var(--green-600); border-radius: 2px; }
+    .header-end { display: flex; align-items: center; gap: 0.75rem; }
+    .btn-wa { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.25rem; background: var(--green-600); color: var(--white); border-radius: 100px; font-size: 0.875rem; font-weight: 600; transition: background 0.15s, transform 0.15s; }
+    .btn-wa:hover { background: var(--green-700); transform: translateY(-1px); }
+    .btn-wa svg { flex-shrink: 0; }
+    .btn-wa span { display: none; }
+    @media (min-width: 640px) { .btn-wa span { display: inline; } }
+    .menu-btn { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 2.5rem; height: 2.5rem; border-radius: 6px; padding: 0.4rem; }
+    @media (min-width: 900px) { .menu-btn { display: none; } }
+    .bar { display: block; height: 2px; background: var(--gray-800); border-radius: 2px; transition: transform 0.3s var(--ease), opacity 0.3s; }
+    .menu-btn.open .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-btn.open .bar:nth-child(2) { opacity: 0; }
+    .menu-btn.open .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { position: fixed; inset: 4.5rem 0 0; background: var(--white); z-index: 99; padding: 1.5rem var(--gutter); display: flex; flex-direction: column; gap: 0.5rem; border-top: 1px solid var(--gray-150); overflow-y: auto; }
+    .mobile-menu[hidden] { display: none; }
+    .mobile-menu a { padding: 0.875rem 1rem; font-weight: 500; border-radius: 8px; color: var(--gray-800); border-bottom: 1px solid var(--gray-100); }
+    .mobile-menu a:hover { background: var(--green-50); color: var(--green-700); }
+    .mobile-wa { display: flex !important; justify-content: center; margin-top: 1rem; background: var(--green-600) !important; color: var(--white) !important; border-radius: 100px !important; border-bottom: none !important; font-weight: 600 !important; padding: 1rem !important; }
+    .site-footer { background: var(--gray-950); color: var(--gray-300); padding-block: 4rem 2rem; }
+    .footer-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 3rem; }
+    @media (min-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1.5fr; } }
+    .footer-logo { filter: brightness(0) invert(1); opacity: 0.9; margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.875rem; line-height: 1.7; color: var(--gray-400); }
+    .footer-brand small { font-size: 0.75rem; color: var(--gray-600); margin-top: 0.5rem; display: block; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.625rem; }
+    .footer-links strong { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-600); margin-bottom: 0.25rem; }
+    .footer-links a, .footer-contact a, .footer-contact address { font-size: 0.875rem; color: var(--gray-400); transition: color 0.15s; line-height: 1.6; }
+    .footer-links a:hover, .footer-contact a:hover { color: var(--green-400); }
+    .footer-contact { display: flex; flex-direction: column; gap: 0.625rem; }
+    .footer-contact strong { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-600); margin-bottom: 0.25rem; }
+    .footer-bar { border-top: 1px solid oklch(20% 0 0); padding-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; font-size: 0.8rem; color: var(--gray-600); }
+    .footer-bar nav { display: flex; gap: 1.5rem; }
+    .footer-bar nav a { color: var(--gray-600); transition: color 0.15s; }
+    .footer-bar nav a:hover { color: var(--green-400); }
+    [data-reveal] { opacity: 0; transform: translateY(32px); transition: opacity 0.65s var(--ease), transform 0.65s var(--ease); }
+    [data-reveal].revealed { opacity: 1; transform: none; }
+    [data-reveal][data-delay="100"] { transition-delay: 100ms; }
+    [data-reveal][data-delay="200"] { transition-delay: 200ms; }
+    [data-reveal][data-delay="300"] { transition-delay: 300ms; }
+    [data-reveal][data-delay="400"] { transition-delay: 400ms; }
+    @media (prefers-reduced-motion: reduce) { [data-reveal] { opacity: 1; transform: none; transition: none; } }
+    .wa-float { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 200; width: 3.5rem; height: 3.5rem; border-radius: 50%; background: #25D366; color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 24px oklch(0% 0 0 / 25%); opacity: 0; transform: scale(0.5); transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), box-shadow 0.2s; }
+    .wa-float.show { opacity: 1; transform: scale(1); }
+    .wa-float:hover { transform: scale(1.12); box-shadow: 0 8px 32px oklch(0% 0 0 / 30%); }
+    .wa-float svg { width: 1.75rem; height: 1.75rem; }
+    .section { padding-block: clamp(4rem, 8vw, 8rem); }
+    .section-sm { padding-block: clamp(2.5rem, 5vw, 5rem); }
+    .bg-dark { background: var(--gray-950); color: var(--white); }
+    .bg-green { background: var(--green-700); color: var(--white); }
+    .bg-tint { background: var(--green-50); }
+    .bg-gray { background: var(--gray-50); }
+    .eyebrow { font-family: var(--fh); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: var(--green-600); display: inline-block; margin-bottom: 0.875rem; }
+    .eyebrow-light { color: var(--green-300); }
+    .display { font-family: var(--fh); font-weight: 900; text-transform: uppercase; line-height: 0.95; letter-spacing: -0.01em; }
+    .display-xl { font-size: clamp(3.5rem, 9vw, 8rem); }
+    .display-lg { font-size: clamp(2.75rem, 6vw, 5.5rem); }
+    .display-md { font-size: clamp(2rem, 4vw, 3.5rem); }
+    .display-sm { font-size: clamp(1.5rem, 3vw, 2.5rem); }
+    .body-lg { font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.75; color: var(--gray-600); }
+    .body-md { font-size: 0.9375rem; line-height: 1.7; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1.875rem; border-radius: 100px; font-weight: 600; font-size: 0.9rem; transition: transform 0.15s var(--ease), box-shadow 0.15s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn svg { width: 1.1rem; height: 1.1rem; flex-shrink: 0; }
+    .btn-green { background: var(--green-600); color: var(--white); }
+    .btn-green:hover { background: var(--green-700); box-shadow: 0 8px 24px oklch(44% 0.19 148 / 35%); }
+    .btn-outline { border: 2px solid var(--green-600); color: var(--green-700); }
+    .btn-outline:hover { background: var(--green-50); }
+    .btn-white { background: var(--white); color: var(--green-700); }
+    .btn-white:hover { box-shadow: 0 8px 24px oklch(0% 0 0 / 15%); }
+    .btn-ghost { border: 2px solid oklch(100% 0 0 / 35%); color: var(--white); }
+    .btn-ghost:hover { background: oklch(100% 0 0 / 10%); border-color: oklch(100% 0 0 / 60%); }
+
+    /* ── PAGE-SPECIFIC STYLES ── */
+
+    /* PAGE HERO */
+    .page-hero {
+      position: relative;
+      min-height: 52vh;
+      background-color: var(--gray-950);
+      display: flex;
+      align-items: flex-end;
+      padding-block: clamp(6rem, 14vw, 12rem) clamp(3.5rem, 6vw, 6rem);
+      overflow: hidden;
+    }
+    .page-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center 30%;
+      filter: brightness(0.25) saturate(0.7);
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--gray-950) 40%, transparent);
+    }
+    .page-hero .wrap { position: relative; z-index: 1; }
+    .page-hero-inner { max-width: 700px; }
+    .page-hero .eyebrow { color: var(--green-300); }
+    .page-hero h1 { color: var(--white); margin-bottom: 1.25rem; }
+    .page-hero p { color: oklch(74% 0 0); font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.75; max-width: 540px; margin-bottom: 2rem; }
+    .hero-area-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .hero-pill {
+      padding: 0.4rem 1rem;
+      border: 1px solid oklch(100% 0 0 / 15%);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: oklch(86% 0 0);
+      background: oklch(100% 0 0 / 6%);
+    }
+
+    /* STICKY SERVICE NAV */
+    .service-nav {
+      position: sticky;
+      top: 4.5rem;
+      z-index: 50;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-150);
+      box-shadow: 0 2px 12px oklch(0% 0 0 / 6%);
+    }
+    .service-nav-inner {
+      display: flex;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .service-nav-inner::-webkit-scrollbar { display: none; }
+    .snav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 1rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+      flex-shrink: 0;
+    }
+    .snav-link:hover { color: var(--green-700); border-bottom-color: var(--green-300); }
+    .snav-link.active { color: var(--green-700); border-bottom-color: var(--green-600); }
+    .snav-num {
+      font-family: var(--fh);
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--green-400);
+    }
+
+    /* SECTION NUMBER */
+    .section-num {
+      font-family: var(--fh);
+      font-size: clamp(6rem, 15vw, 14rem);
+      font-weight: 900;
+      line-height: 0.8;
+      color: var(--green-100);
+      user-select: none;
+      pointer-events: none;
+      letter-spacing: -0.04em;
+      margin-bottom: -1.5rem;
+      position: relative;
+      z-index: 0;
+    }
+    .section-num-dark { color: oklch(100% 0 0 / 5%); }
+    .section-num-tint { color: var(--green-200); }
+
+    /* SST SECTION */
+    .sst-section { background: var(--white); }
+    .sst-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2.5rem, 5vw, 4rem);
+      align-items: start;
+    }
+    @media (min-width: 900px) {
+      .sst-layout { grid-template-columns: 5fr 7fr; }
+    }
+    .sst-left h2 { margin-bottom: 1rem; }
+    .sst-left p { color: var(--gray-600); font-size: 0.9375rem; line-height: 1.8; margin-bottom: 1.5rem; }
+    .sst-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.75rem; }
+    .tag {
+      padding: 0.35rem 0.875rem;
+      background: var(--green-50);
+      color: var(--green-700);
+      border: 1px solid var(--green-200);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .sst-right h3 {
+      font-family: var(--fh);
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-600);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--gray-150);
+    }
+    .doc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .doc-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--gray-700);
+    }
+    .doc-item::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green-500);
+      flex-shrink: 0;
+    }
+    .doc-item:last-child { border-bottom: none; }
+    .esocial-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      padding: 0.625rem 1.125rem;
+      background: var(--green-700);
+      color: var(--white);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* TREINAMENTOS */
+    .trein-section { background: var(--green-50); }
+    .trein-header { margin-bottom: 2.5rem; }
+    .trein-header h2 { margin-bottom: 0.75rem; }
+    .trein-header p { color: var(--gray-600); font-size: 0.9375rem; }
+    .accordion { display: flex; flex-direction: column; gap: 0.5rem; }
+    .acc-item {
+      background: var(--white);
+      border: 1px solid var(--gray-150);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .acc-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.125rem 1.5rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--gray-800);
+      transition: background 0.15s;
+    }
+    .acc-trigger:hover { background: var(--green-50); }
+    .acc-trigger[aria-expanded="true"] { color: var(--green-700); background: var(--green-50); }
+    .acc-trigger-left { display: flex; align-items: center; gap: 0.875rem; }
+    .acc-nr-badge {
+      font-family: var(--fh);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--green-600);
+      background: var(--green-100);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      flex-shrink: 0;
+      min-width: 52px;
+      text-align: center;
+    }
+    .acc-chevron {
+      width: 20px;
+      height: 20px;
+      color: var(--gray-400);
+      transition: transform 0.25s var(--ease);
+      flex-shrink: 0;
+    }
+    .acc-trigger[aria-expanded="true"] .acc-chevron { transform: rotate(180deg); color: var(--green-600); }
+    .acc-panel { display: none; padding: 0 1.5rem 1.25rem; }
+    .acc-panel[aria-hidden="false"] { display: block; }
+    .acc-panel p { font-size: 0.875rem; color: var(--gray-600); line-height: 1.75; }
+    .acc-meta {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .acc-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      font-weight: 500;
+    }
+    .modalities { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
+    .mod-tag {
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: var(--green-100);
+      color: var(--green-700);
+    }
+
+    /* ENGENHARIA SECTION */
+    .eng-section { background: var(--gray-950); color: var(--white); }
+    .eng-section .section-num { color: oklch(100% 0 0 / 5%); }
+    .eng-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2.5rem, 5vw, 4rem);
+      align-items: start;
+    }
+    @media (min-width: 900px) {
+      .eng-layout { grid-template-columns: 1fr 1fr; }
+    }
+    .eng-left h2 { color: var(--white); margin-bottom: 1rem; }
+    .eng-left p { color: var(--gray-400); font-size: 0.9375rem; line-height: 1.8; margin-bottom: 1rem; }
+    .crea-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 0.75rem 1.25rem;
+      border: 1px solid oklch(100% 0 0 / 15%);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--green-300);
+      margin-top: 0.5rem;
+    }
+    .eng-services-list { display: flex; flex-direction: column; gap: 0; }
+    .eng-service-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid oklch(100% 0 0 / 8%);
+    }
+    .eng-service-item:last-child { border-bottom: none; }
+    .eng-service-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: oklch(100% 0 0 / 6%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .eng-service-icon svg { width: 18px; height: 18px; color: var(--green-400); }
+    .eng-service-content strong { display: block; font-size: 0.875rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
+    .eng-service-content span { font-size: 0.8rem; color: var(--gray-500); line-height: 1.6; }
+
+    /* MEIO AMBIENTE */
+    .ma-section { background: var(--white); }
+    .ma-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2.5rem, 5vw, 4rem);
+      align-items: start;
+    }
+    @media (min-width: 900px) {
+      .ma-layout { grid-template-columns: 7fr 5fr; }
+    }
+    .ma-left { order: 1; }
+    .ma-right { order: 2; }
+    @media (min-width: 900px) {
+      .ma-left { order: 2; }
+      .ma-right { order: 1; }
+    }
+    .ma-right h2 { margin-bottom: 1rem; }
+    .ma-right p { color: var(--gray-600); font-size: 0.9375rem; line-height: 1.8; margin-bottom: 1rem; }
+    .agency-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .agency-pill {
+      padding: 0.35rem 0.875rem;
+      border: 1px solid var(--gray-200);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      background: var(--gray-50);
+    }
+    .ma-services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    @media (max-width: 500px) {
+      .ma-services-grid { grid-template-columns: 1fr; }
+    }
+    .ma-service-card {
+      background: var(--green-50);
+      border: 1px solid var(--green-200);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .ma-service-abbr {
+      font-family: var(--fh);
+      font-size: 1.25rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--green-700);
+      line-height: 1;
+      margin-bottom: 0.375rem;
+    }
+    .ma-service-name { font-size: 0.775rem; color: var(--gray-600); line-height: 1.5; }
+    .ma-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    /* EQUIPAMENTOS */
+    .equip-section { background: var(--gray-50); }
+    .equip-header { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+    .equip-header h2 { margin-bottom: 0.875rem; }
+    .equip-header p { color: var(--gray-600); font-size: 0.9375rem; line-height: 1.8; max-width: 640px; }
+    .equip-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .equip-layout { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .equip-layout { grid-template-columns: repeat(4, 1fr); }
+    }
+    .equip-category {
+      background: var(--white);
+      border: 1px solid var(--gray-150);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .equip-category-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .equip-category-body { padding: 1.5rem; flex: 1; }
+    .equip-category-title {
+      font-family: var(--fh);
+      font-size: 1.25rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--gray-800);
+      margin-bottom: 0.625rem;
+      line-height: 1.1;
+    }
+    .equip-items { display: flex; flex-direction: column; gap: 0.4rem; }
+    .equip-item { font-size: 0.85rem; color: var(--gray-600); display: flex; align-items: center; gap: 0.5rem; }
+    .equip-item::before { content: '—'; color: var(--green-500); font-weight: 700; flex-shrink: 0; }
+    .brands-row {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-150);
+    }
+    .brands-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gray-400);
+      margin-bottom: 1.25rem;
+    }
+    .brands-list { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+    .brand-badge {
+      padding: 0.5rem 1.25rem;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--gray-700);
+      background: var(--white);
+      letter-spacing: 0.02em;
+    }
+    .sales-strip {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .sales-item {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 0.75rem 1.25rem;
+      background: var(--green-700);
+      color: var(--white);
+      border-radius: 10px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    /* CTA */
+    .cta-servicos {
+      background: var(--gray-950);
+      background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .cta-servicos::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--green-700);
+      opacity: 0.93;
+    }
+    .cta-servicos .wrap { position: relative; z-index: 1; text-align: center; }
+    .cta-servicos h2 { color: var(--white); margin-bottom: 1rem; }
+    .cta-servicos p { color: var(--green-200); font-size: clamp(1rem, 1.5vw, 1.15rem); margin-bottom: 2.5rem; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <a href="index.html" class="site-logo">
+      <img src="./assets/logo.png" alt="PROTEÇÃO" height="42" width="auto">
+    </a>
+    <nav class="site-nav" id="siteNav" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre Nós</a>
+      <a href="servicos.html" aria-current="page">Nossos Serviços</a>
+      <a href="equipe.html">Nossa Equipe</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div class="header-end">
+      <a href="https://wa.me/556933222334?text=Ol%C3%A1!%20Quero%20regularizar%20minha%20empresa." class="btn-wa" aria-label="WhatsApp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span>WhatsApp</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" hidden aria-label="Menu mobile">
+    <a href="index.html">Início</a>
+    <a href="sobre.html">Sobre Nós</a>
+    <a href="servicos.html">Nossos Serviços</a>
+    <a href="equipe.html">Nossa Equipe</a>
+    <a href="contato.html">Contato</a>
+    <a href="https://wa.me/556933222334?text=Ol%C3%A1!%20Quero%20regularizar%20minha%20empresa." class="mobile-wa">Falar no WhatsApp</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- 1. PAGE HERO -->
+  <section class="page-hero" aria-labelledby="hero-heading">
+    <div class="page-hero-bg" role="presentation" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="page-hero-inner">
+        <span class="eyebrow eyebrow-light" data-reveal>Portfólio Completo</span>
+        <h1 class="display display-xl" id="hero-heading" data-reveal data-delay="100">Nossos<br>Serviços</h1>
+        <p data-reveal data-delay="200">Quatro áreas de atuação integradas — SST, Engenharia, Meio Ambiente e Equipamentos — para que sua empresa não precise procurar mais ninguém.</p>
+        <div class="hero-area-pills" data-reveal data-delay="300">
+          <span class="hero-pill">01 — SST</span>
+          <span class="hero-pill">02 — Engenharia</span>
+          <span class="hero-pill">03 — Meio Ambiente</span>
+          <span class="hero-pill">04 — Equipamentos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. STICKY SERVICE NAV -->
+  <nav class="service-nav" aria-label="Navegar pelos serviços">
+    <div class="wrap">
+      <div class="service-nav-inner">
+        <a href="#sst" class="snav-link active" id="snav-sst">
+          <span class="snav-num" aria-hidden="true">01</span>
+          SST
+        </a>
+        <a href="#treinamentos" class="snav-link" id="snav-trein">
+          <span class="snav-num" aria-hidden="true">+</span>
+          Treinamentos NR
+        </a>
+        <a href="#engenharia" class="snav-link" id="snav-eng">
+          <span class="snav-num" aria-hidden="true">02</span>
+          Engenharia
+        </a>
+        <a href="#meio-ambiente" class="snav-link" id="snav-ma">
+          <span class="snav-num" aria-hidden="true">03</span>
+          Meio Ambiente
+        </a>
+        <a href="#equipamentos" class="snav-link" id="snav-eq">
+          <span class="snav-num" aria-hidden="true">04</span>
+          Equipamentos
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 3. SST SECTION -->
+  <section class="section sst-section" id="sst" aria-labelledby="sst-heading">
+    <div class="wrap">
+      <div class="section-num" aria-hidden="true">01</div>
+      <div class="sst-layout">
+        <div class="sst-left">
+          <span class="eyebrow" data-reveal>Segurança &amp; Saúde</span>
+          <h2 class="display display-md" id="sst-heading" data-reveal data-delay="100">Segurança e Saúde do Trabalho</h2>
+          <p data-reveal data-delay="200">Elaboramos, implementamos e mantemos atualizados todos os programas exigidos pela legislação trabalhista brasileira. Nossa equipe de técnicos e engenheiros SST garante conformidade total com o eSocial e o Ministério do Trabalho e Previdência.</p>
+          <div class="sst-tags" data-reveal data-delay="300">
+            <span class="tag">eSocial Integrado</span>
+            <span class="tag">NR-01 Atualizada</span>
+            <span class="tag">Riscos Psicossociais</span>
+            <span class="tag">Medições Ocupacionais</span>
+          </div>
+          <div class="esocial-badge" data-reveal data-delay="400">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            Gestão eSocial eventos 2210 · 2220 · 2221 · 2240
+          </div>
+        </div>
+        <div class="sst-right" data-reveal data-delay="200">
+          <h3>Documentos e Programas</h3>
+          <div class="doc-grid">
+            <div class="doc-item">PGR</div>
+            <div class="doc-item">PCMSO</div>
+            <div class="doc-item">LTCAT</div>
+            <div class="doc-item">LIP</div>
+            <div class="doc-item">PCA</div>
+            <div class="doc-item">NR-01</div>
+            <div class="doc-item">CIPA / CIPATR</div>
+            <div class="doc-item">SIPAT</div>
+            <div class="doc-item">CAT</div>
+            <div class="doc-item">PPP</div>
+            <div class="doc-item">AET</div>
+            <div class="doc-item">Mapa de Risco</div>
+            <div class="doc-item">PGRTR (rural)</div>
+            <div class="doc-item">Inv. Acidentes</div>
+          </div>
+          <div style="margin-top: 1.75rem;">
+            <h3>Medições Ocupacionais</h3>
+            <div class="doc-grid">
+              <div class="doc-item">Ruído</div>
+              <div class="doc-item">Vibração</div>
+              <div class="doc-item">Poeira</div>
+              <div class="doc-item">Temperatura</div>
+              <div class="doc-item">Agentes Químicos</div>
+              <div class="doc-item">Riscos Psicossociais</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. TREINAMENTOS -->
+  <section class="section trein-section" id="treinamentos" aria-labelledby="trein-heading">
+    <div class="wrap">
+      <div class="trein-header">
+        <span class="eyebrow" data-reveal>Capacitação</span>
+        <h2 class="display display-md" id="trein-heading" data-reveal data-delay="100">Treinamentos NR</h2>
+        <p data-reveal data-delay="200">Plataforma EAD própria, semipresencial ou presencial. Certificados com validade legal para eSocial. Turmas abertas e in company.</p>
+      </div>
+      <div class="accordion" data-reveal>
+        <!-- NR-01 -->
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="true" aria-controls="acc-nr01">
+            <span class="acc-trigger-left">
+              <span class="acc-nr-badge">NR-01</span>
+              Disposições Gerais e Gerenciamento de Riscos
+            </span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="acc-panel" id="acc-nr01" aria-hidden="false">
+            <p>Formação dos trabalhadores em Gerenciamento de Riscos Ocupacionais conforme a NR-01 revisada (2024), incluindo identificação, avaliação e controle de perigos, riscos psicossociais e obrigações do empregador e do empregado.</p>
+            <div class="acc-meta">
+              <span class="acc-meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                8h
+              </span>
+              <span class="acc-meta-item">Periodicidade: anual</span>
+            </div>
+            <div class="modalities">
+              <span class="mod-tag">EAD</span><span class="mod-tag">Semipresencial</span><span class="mod-tag">Presencial</span>
+            </div>
+          </div>
+        </div>
+        <!-- NR-05 -->
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc-nr05">
+            <span class="acc-trigger-left">
+              <span class="acc-nr-badge">NR-05</span>
+              CIPA — Comissão Interna de Prevenção de Acidentes
+            </span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="acc-panel" id="acc-nr05" aria-hidden="true">
+            <p>Treinamento obrigatório para membros da CIPA e CIPATR (rural). Conteúdo alinhado ao Quadro IV da NR-05: noções de acidentes, doenças do trabalho, mapa de riscos, SIPAT e EPI.</p>
+            <div class="acc-meta"><span class="acc-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>20h</span><span class="acc-meta-item">Periodicidade: anual (mandato)</span></div>
+            <div class="modalities"><span class="mod-tag">Presencial</span><span class="mod-tag">Semipresencial</span></div>
+          </div>
+        </div>
+        <!-- NR-06 -->
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc-nr06">
+            <span class="acc-trigger-left"><span class="acc-nr-badge">NR-06</span>Equipamento de Proteção Individual — EPI</span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="acc-panel" id="acc-nr06" aria-hidden="true">
+            <p>Capacitação para uso correto, conservação e guarda de EPIs. Inclui responsabilidades do empregador, do trabalhador e gestão de CA no sistema do MTE.</p>
+            <div class="acc-meta"><span class="acc-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>4h</span><span class="acc-meta-item">Periodicidade: admissional + anual</span></div>
+            <div class="modalities"><span class="mod-tag">EAD</span><span class="mod-tag">Presencial</span></div>
+          </div>
+        </div>
+        <!-- NR-10 -->
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc-nr10">
+            <span class="acc-trigger-left"><span class="acc-nr-badge">NR-10</span>Segurança em Instalações e Serviços em Eletricidade</span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="acc-panel" id="acc-nr10" aria-hidden="true">
+            <p>Habilita trabalhadores para operar, construir e manter sistemas elétricos com segurança. Módulo básico (40h) e complementar SEP (Sistema Elétrico de Potência, 40h). Certificado obrigatório para trabalhos em eletricidade.</p>
+            <div class="acc-meta"><span class="acc-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>40h / 80h (SEP)</span><span class="acc-meta-item">Periodicidade: bienal</span></div>
+            <div class="modalities"><span class="mod-tag">Presencial</span></div>
+          </div>
+        </div>
+        <!-- NR-12 -->
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc-nr12">
+            <span class="acc-trigger-left"><span class="acc-nr-badge">NR-12</span>Segurança no Trabalho em Máquinas e Equipamentos</span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="acc-panel" id="acc-nr12" aria-hidden="true">
+            <p>Capacitação de operadores e responsáveis pela manutenção de máquinas e equipamentos. Conteúdo: pontos de operação, zonas de perigo, dispositivos de proteção e parada de emergência.</p>
+            <div class="acc-meta"><span class="acc-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>8h</span><span class="acc-meta-item">Periodicidade: anual</span></div>
+            <div class="modalities"><span class="mod-tag">Presencial</span><span class="mod-tag">Semipresencial</span></div>
+          </div>
+        </div>
+        <!-- NR-18 -->
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc-nr18">
+            <span class="acc-trigger-left"><span class="acc-nr-badge">NR-18</span>Segurança e Saúde no Trabalho na Construção Civil</span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="acc-panel" id="acc-nr18" aria-hidden="true">
+            <p>Treinamento obrigatório para trabalhadores da construção civil: andaimes, escavações, fundações, estruturas metálicas, trabalho em altura e proteção coletiva em canteiros de obra.</p>
+            <div class="acc-meta"><span class="acc-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6h</span><span class="acc-meta-item">Periodicidade: anual</span></div>
+            <div class="modalities"><span class="mod-tag">Presencial</span><span class="mod-tag">EAD</span></div>
+          </div>
+        </div>
+        <!-- NR-35 -->
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc-nr35">
+            <span class="acc-trigger-left"><span class="acc-nr-badge">NR-35</span>Trabalho em Altura</span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="acc-panel" id="acc-nr35" aria-hidden="true">
+            <p>Habilita trabalhadores que executam atividades acima de 2 metros do nível inferior, onde haja risco de queda. Contempla análise de risco, permissão de trabalho, sistemas de ancoragem, pontos de fixação e resgate em altura.</p>
+            <div class="acc-meta"><span class="acc-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>8h</span><span class="acc-meta-item">Periodicidade: bienal</span></div>
+            <div class="modalities"><span class="mod-tag">Presencial</span><span class="mod-tag">Semipresencial</span></div>
+          </div>
+        </div>
+        <!-- Brigada -->
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc-brigada">
+            <span class="acc-trigger-left"><span class="acc-nr-badge" style="font-size:0.65rem;">BRIGADA</span>Brigada de Incêndio e Primeiros Socorros</span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="acc-panel" id="acc-brigada" aria-hidden="true">
+            <p>Formação de brigadas de emergência conforme IT-17 do Corpo de Bombeiros de Rondônia e NBR 14276. Inclui combate a incêndio, abandono de área, primeiros socorros e simulados práticos.</p>
+            <div class="acc-meta"><span class="acc-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>16h a 40h</span><span class="acc-meta-item">Periodicidade: anual</span></div>
+            <div class="modalities"><span class="mod-tag">Presencial</span></div>
+          </div>
+        </div>
+        <!-- Outros NRs -->
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc-outros">
+            <span class="acc-trigger-left"><span class="acc-nr-badge" style="font-size:0.65rem;">DEMAIS</span>NR-11, 17, 20, 23, 31, 32, 33 e mais</span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="acc-panel" id="acc-outros" aria-hidden="true">
+            <p>Também realizamos treinamentos em: NR-11 (Transporte e Movimentação de Materiais), NR-17 (Ergonomia), NR-20 (Inflamáveis e Combustíveis), NR-23 (Proteção Contra Incêndios), NR-31 (Segurança Rural), NR-32 (Saúde), NR-33 (Espaços Confinados). Consulte disponibilidade de turmas abertas e formatos in company.</p>
+            <div class="acc-meta"><span class="acc-meta-item">Carga horária variável por NR</span></div>
+            <div class="modalities"><span class="mod-tag">EAD</span><span class="mod-tag">Presencial</span><span class="mod-tag">In Company</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ENGENHARIA -->
+  <section class="section eng-section" id="engenharia" aria-labelledby="eng-heading">
+    <div class="wrap">
+      <div class="section-num section-num-dark" aria-hidden="true">02</div>
+      <div class="eng-layout">
+        <div class="eng-left">
+          <span class="eyebrow eyebrow-light" data-reveal>Projetos &amp; Laudos</span>
+          <h2 class="display display-md" id="eng-heading" data-reveal data-delay="100">Engenharia SST e Civil</h2>
+          <p data-reveal data-delay="200">Assinamos projetos e laudos técnicos com responsabilidade plena registrada no CREA-RO. Do PPCI à linha de vida, do laudo elétrico ao projeto arquitetônico, entregamos documentação aceita por todos os órgãos fiscalizadores.</p>
+          <p data-reveal data-delay="300">Nossa Responsabilidade Técnica garante que cada documento tenha validade legal perante o Ministério do Trabalho, Corpo de Bombeiros, SEDAM, SEMA e demais autoridades competentes.</p>
+          <div class="crea-badge" data-reveal data-delay="400">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            RT CREA-RO 9182EMRO
+          </div>
+        </div>
+        <div class="eng-services-list" data-reveal data-delay="200">
+          <div class="eng-service-item">
+            <div class="eng-service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="eng-service-content">
+              <strong>PPCI — Plano de Prevenção Contra Incêndios</strong>
+              <span>Projeto completo para aprovação junto ao Corpo de Bombeiros de Rondônia</span>
+            </div>
+          </div>
+          <div class="eng-service-item">
+            <div class="eng-service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <div class="eng-service-content">
+              <strong>SPDA — Sistema de Proteção contra Descargas Atmosféricas</strong>
+              <span>Projeto e laudo de para-raios conforme NBR 5419</span>
+            </div>
+          </div>
+          <div class="eng-service-item">
+            <div class="eng-service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+            </div>
+            <div class="eng-service-content">
+              <strong>Linha de Vida e Ancoragem — SPIQ</strong>
+              <span>Projetos de ancoragem e sistemas de linha de vida para trabalho em altura</span>
+            </div>
+          </div>
+          <div class="eng-service-item">
+            <div class="eng-service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <div class="eng-service-content">
+              <strong>Laudo Ôhmico R1 — Laudo Elétrico</strong>
+              <span>Inspeção e laudo de instalações elétricas conforme NR-10 e normas ABNT</span>
+            </div>
+          </div>
+          <div class="eng-service-item">
+            <div class="eng-service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div class="eng-service-content">
+              <strong>Laudos Estruturais e de Aterramento</strong>
+              <span>Avaliação de estruturas civis e sistemas de aterramento elétrico</span>
+            </div>
+          </div>
+          <div class="eng-service-item">
+            <div class="eng-service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div class="eng-service-content">
+              <strong>Perícias Técnicas Trabalhistas</strong>
+              <span>Avaliações periciais para processos judiciais e administrativos</span>
+            </div>
+          </div>
+          <div class="eng-service-item">
+            <div class="eng-service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <div class="eng-service-content">
+              <strong>Projetos Arquitetônicos e RDC/Anvisa</strong>
+              <span>Projetos para clínicas, farmácias e unidades de saúde com normas Anvisa</span>
+            </div>
+          </div>
+          <div class="eng-service-item">
+            <div class="eng-service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M3 12a9 9 0 0118 0 9 9 0 01-18 0z"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <div class="eng-service-content">
+              <strong>Unidades de Apoio Agrícola</strong>
+              <span>Projetos de galpões, armazéns e estruturas rurais com RT CREA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. MEIO AMBIENTE -->
+  <section class="section ma-section" id="meio-ambiente" aria-labelledby="ma-heading">
+    <div class="wrap">
+      <div class="section-num section-num-tint" aria-hidden="true">03</div>
+      <div class="ma-layout">
+        <div class="ma-right">
+          <span class="eyebrow" data-reveal>Licenciamento &amp; Gestão</span>
+          <h2 class="display display-md" id="ma-heading" data-reveal data-delay="100">Meio Ambiente</h2>
+          <p data-reveal data-delay="200">Realizamos todo o processo de licenciamento ambiental nas esferas municipal, estadual e federal — da consulta prévia à licença de operação. Nossos biólogos e especialistas ambientais conhecem os órgãos e requisitos específicos de Rondônia, Mato Grosso e Acre.</p>
+          <p data-reveal data-delay="300">Regularizamos sua empresa perante SEDAM-RO, SEMA-MT, IMAC-AC, IBAMA e demais autoridades competentes, prevenindo embargos e passivos ambientais.</p>
+          <div class="agency-row" data-reveal data-delay="400">
+            <span class="agency-pill">SEDAM-RO</span>
+            <span class="agency-pill">SEMA-MT</span>
+            <span class="agency-pill">IMAC-AC</span>
+            <span class="agency-pill">IBAMA</span>
+            <span class="agency-pill">SISNAMA</span>
+          </div>
+        </div>
+        <div class="ma-left">
+          <div class="ma-services-grid" data-reveal data-delay="100">
+            <div class="ma-service-card">
+              <div class="ma-service-abbr">PGRCC</div>
+              <div class="ma-service-name">Gerenciamento de Resíduos de Construção Civil</div>
+            </div>
+            <div class="ma-service-card">
+              <div class="ma-service-abbr">PGRSS</div>
+              <div class="ma-service-name">Gerenciamento de Resíduos de Serviços de Saúde</div>
+            </div>
+            <div class="ma-service-card">
+              <div class="ma-service-abbr">PGRS</div>
+              <div class="ma-service-name">Plano de Gerenciamento de Resíduos Sólidos</div>
+            </div>
+            <div class="ma-service-card">
+              <div class="ma-service-abbr">RIT</div>
+              <div class="ma-service-name">Relatório de Impacto de Trânsito</div>
+            </div>
+            <div class="ma-service-card">
+              <div class="ma-service-abbr">EIV</div>
+              <div class="ma-service-name">Estudo de Impacto de Vizinhança</div>
+            </div>
+            <div class="ma-service-card">
+              <div class="ma-service-abbr">RIMA</div>
+              <div class="ma-service-name">Relatório de Impacto ao Meio Ambiente</div>
+            </div>
+            <div class="ma-service-card">
+              <div class="ma-service-abbr">RMA</div>
+              <div class="ma-service-name">Relatório de Monitoramento Ambiental</div>
+            </div>
+            <div class="ma-service-card">
+              <div class="ma-service-abbr">PCA</div>
+              <div class="ma-service-name">Plano de Controle Ambiental</div>
+            </div>
+          </div>
+          <img
+            src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80"
+            alt="Floresta amazônica — área de atuação ambiental da PROTEÇÃO"
+            class="ma-img"
+            style="margin-top: 1.5rem;"
+            loading="lazy"
+            width="600"
+            height="320"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. EQUIPAMENTOS -->
+  <section class="section equip-section" id="equipamentos" aria-labelledby="equip-heading">
+    <div class="wrap">
+      <div class="section-num" aria-hidden="true">04</div>
+      <div class="equip-header">
+        <span class="eyebrow" data-reveal>Loja Técnica</span>
+        <h2 class="display display-md" id="equip-heading" data-reveal data-delay="100">EPIs, EPCs<br>e Ferramentas</h2>
+        <p data-reveal data-delay="200">Linha completa de Equipamentos de Proteção Individual com Certificado de Aprovação (CA) válido, EPCs e ferramentas profissionais das melhores marcas. Atendemos PJ, produtores rurais e pessoa física com orientação técnica no ponto de venda.</p>
+      </div>
+      <div class="equip-layout" data-reveal>
+        <article class="equip-category">
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80"
+            alt="Equipamentos de Proteção Individual — capacetes, luvas e óculos de segurança"
+            class="equip-category-img"
+            loading="lazy"
+            width="600"
+            height="200"
+          >
+          <div class="equip-category-body">
+            <div class="equip-category-title">EPIs</div>
+            <ul class="equip-items">
+              <li class="equip-item">Capacetes de segurança</li>
+              <li class="equip-item">Luvas e mangotes</li>
+              <li class="equip-item">Óculos e protetor facial</li>
+              <li class="equip-item">Botas e calçados de segurança</li>
+              <li class="equip-item">Cintos e talabartes</li>
+              <li class="equip-item">Respiradores e mascaras</li>
+              <li class="equip-item">Proteção auditiva (CA válido)</li>
+            </ul>
+          </div>
+        </article>
+        <article class="equip-category">
+          <img
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80"
+            alt="Equipamentos de Proteção Coletiva em canteiro de obras"
+            class="equip-category-img"
+            loading="lazy"
+            width="600"
+            height="200"
+          >
+          <div class="equip-category-body">
+            <div class="equip-category-title">EPCs</div>
+            <ul class="equip-items">
+              <li class="equip-item">Sinalizadores e cones</li>
+              <li class="equip-item">Redes de proteção</li>
+              <li class="equip-item">Telas e grades metálicas</li>
+              <li class="equip-item">Extintores e sistemas combate</li>
+              <li class="equip-item">Placas de sinalização</li>
+              <li class="equip-item">Kits de primeiros socorros</li>
+            </ul>
+          </div>
+        </article>
+        <article class="equip-category">
+          <img
+            src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=600&q=80"
+            alt="Ferramentas profissionais DeWalt e Stanley"
+            class="equip-category-img"
+            loading="lazy"
+            width="600"
+            height="200"
+          >
+          <div class="equip-category-body">
+            <div class="equip-category-title">Ferramentas</div>
+            <ul class="equip-items">
+              <li class="equip-item">Furadeiras e parafusadeiras</li>
+              <li class="equip-item">Serras e esmerilhadeiras</li>
+              <li class="equip-item">Chaves e alicates profissionais</li>
+              <li class="equip-item">Medidores e níveis</li>
+              <li class="equip-item">Compressores e geradores</li>
+            </ul>
+          </div>
+        </article>
+        <article class="equip-category" style="background: var(--green-700); border-color: var(--green-700);">
+          <div class="equip-category-body" style="display: flex; flex-direction: column; justify-content: center; padding: 2rem;">
+            <div style="margin-bottom: 1.25rem;">
+              <div class="equip-category-title" style="color: var(--white); margin-bottom: 0.5rem;">Condições Especiais PJ</div>
+              <p style="font-size: 0.875rem; color: var(--green-200); line-height: 1.7; margin: 0;">Faturamento em nota fiscal, cotação para frota completa de EPIs, entregas para propriedades rurais em RO, MT e AC.</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <div style="display: flex; align-items: center; gap: 0.625rem; font-size: 0.8rem; font-weight: 600; color: var(--white);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Pessoa Jurídica
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.625rem; font-size: 0.8rem; font-weight: 600; color: var(--white);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Produtores Rurais
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.625rem; font-size: 0.8rem; font-weight: 600; color: var(--white);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Pessoa Física
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.625rem; font-size: 0.8rem; font-weight: 600; color: var(--white);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Orientação técnica inclusa
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="brands-row" data-reveal>
+        <div class="brands-label">Marcas disponíveis</div>
+        <div class="brands-list">
+          <span class="brand-badge">DeWalt</span>
+          <span class="brand-badge">Stanley</span>
+          <span class="brand-badge">Black+Decker</span>
+          <span class="brand-badge">3M</span>
+          <span class="brand-badge">Tufão</span>
+          <span class="brand-badge">Carbografite</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CTA -->
+  <section class="section cta-servicos" aria-labelledby="cta-heading">
+    <div class="wrap">
+      <span class="eyebrow eyebrow-light" data-reveal>Fale com a gente</span>
+      <h2 class="display display-lg" id="cta-heading" data-reveal data-delay="100">Qual serviço<br>você precisa?</h2>
+      <p data-reveal data-delay="200">Nossa equipe analisa sua situação e apresenta a solução certa — sem enrolação, sem visita desnecessária. Fale agora.</p>
+      <div class="cta-btns" data-reveal data-delay="300">
+        <a href="https://wa.me/556933222334?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20servi%C3%A7os%20e%20preciso%20de%20um%20or%C3%A7amento." class="btn btn-white">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Pedir Orçamento no WhatsApp
+        </a>
+        <a href="contato.html" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          Falar com a Equipe
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="./assets/logo.png" alt="PROTEÇÃO" height="50" class="footer-logo">
+        <p>Soluções em Segurança do Trabalho e Meio Ambiente desde 2011.</p>
+        <small>CREA-RO 9182EMRO · Credenciada eSocial · Corpo de Bombeiros RO</small>
+      </div>
+      <nav class="footer-links" aria-label="Links do site"><strong>Site</strong>
+        <a href="index.html">Início</a><a href="sobre.html">Sobre Nós</a>
+        <a href="servicos.html">Serviços</a><a href="equipe.html">Equipe</a><a href="contato.html">Contato</a>
+      </nav>
+      <nav class="footer-links" aria-label="Serviços em destaque"><strong>Serviços</strong>
+        <a href="pgr.html">PGR — NR-01</a><a href="pcmso.html">PCMSO — NR-07</a>
+        <a href="treinamentos-nr.html">Treinamentos NR</a><a href="servicos.html">Ver todos →</a>
+      </nav>
+      <div class="footer-contact"><strong>Contato</strong>
+        <a href="tel:+556933222334">(69) 3322-2334</a>
+        <a href="mailto:vendas@protecaosolucoes.com.br">vendas@protecaosolucoes.com.br</a>
+        <address>Av. Marechal Rondon, nº 5204<br>Bairro 5º BEC · Vilhena – RO</address>
+        <a href="https://www.instagram.com/protecaosolucoes/" target="_blank" rel="noopener noreferrer">@protecaosolucoes</a>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>© 2026 PROTEÇÃO — Todos os direitos reservados</span>
+      <nav aria-label="Links de rodapé"><a href="pgr.html">PGR</a><a href="pcmso.html">PCMSO</a><a href="treinamentos-nr.html">Treinamentos NR</a></nav>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/556933222334?text=Ol%C3%A1!%20Quero%20regularizar%20minha%20empresa." class="wa-float" id="waFloat" aria-label="Chamar no WhatsApp" target="_blank" rel="noopener noreferrer">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // ── MOBILE MENU ──
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenu.hidden;
+      mobileMenu.hidden = isOpen;
+      menuBtn.setAttribute('aria-expanded', !isOpen);
+      document.body.style.overflow = isOpen ? '' : 'hidden';
+      menuBtn.classList.toggle('open', !isOpen);
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenu.hidden = true;
+        menuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        menuBtn.classList.remove('open');
+      });
+    });
+  }
+
+  // ── HEADER SCROLL ──
+  const siteHeader = document.getElementById('siteHeader');
+  if (siteHeader) window.addEventListener('scroll', () => siteHeader.classList.toggle('scrolled', window.scrollY > 24), { passive: true });
+
+  // ── REVEAL ON SCROLL ──
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const d = parseInt(e.target.dataset.delay || '0');
+        setTimeout(() => e.target.classList.add('revealed'), d);
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('revealed'));
+  }
+
+  // ── WA FLOAT ──
+  const waFloat = document.getElementById('waFloat');
+  if (waFloat) setTimeout(() => waFloat.classList.add('show'), 1500);
+
+  // ── ACCORDION ──
+  document.querySelectorAll('.acc-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panelId = btn.getAttribute('aria-controls');
+      const panel = document.getElementById(panelId);
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+      // Close all others
+      document.querySelectorAll('.acc-trigger').forEach(other => {
+        if (other !== btn) {
+          other.setAttribute('aria-expanded', 'false');
+          const otherId = other.getAttribute('aria-controls');
+          const otherPanel = document.getElementById(otherId);
+          if (otherPanel) otherPanel.setAttribute('aria-hidden', 'true');
+        }
+      });
+
+      // Toggle this one
+      btn.setAttribute('aria-expanded', !isExpanded);
+      panel.setAttribute('aria-hidden', isExpanded);
+    });
+  });
+
+  // ── SERVICE NAV ACTIVE STATE ──
+  const sections = ['sst', 'treinamentos', 'engenharia', 'meio-ambiente', 'equipamentos'];
+  const navMap = {
+    'sst': 'snav-sst',
+    'treinamentos': 'snav-trein',
+    'engenharia': 'snav-eng',
+    'meio-ambiente': 'snav-ma',
+    'equipamentos': 'snav-eq'
+  };
+
+  const sectionEls = sections.map(id => document.getElementById(id)).filter(Boolean);
+  const navEls = Object.values(navMap).map(id => document.getElementById(id)).filter(Boolean);
+
+  function updateActiveNav() {
+    let current = 'sst';
+    sectionEls.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      // Two nav bars: ~72px + ~52px = ~124px offset
+      if (rect.top <= 140) {
+        current = section.id;
+      }
+    });
+    navEls.forEach(el => el.classList.remove('active'));
+    const activeEl = document.getElementById(navMap[current]);
+    if (activeEl) activeEl.classList.add('active');
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  updateActiveNav();
+</script>
+</body>
+</html>
