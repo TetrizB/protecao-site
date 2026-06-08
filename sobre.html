@@ -112,35 +112,48 @@
 
     /* ── PAGE-SPECIFIC STYLES ── */
 
-    /* PAGE HERO */
+    /* ════════════════════════════════════════════════════════════
+       HERO — FOTO DE FUNDO
+       ▸ Para trocar a foto: edite o atributo src do <img id="heroFoto">
+         no HTML abaixo (busque por id="heroFoto")
+       ▸ Para ajustar o foco da foto: edite object-position em .hero-foto-img
+         Ex: "center top" mostra mais o topo | "center 60%" desce o foco
+       ▸ Para escurecer mais o overlay: aumente os valores de opacidade
+         na propriedade background de .hero-overlay (ex: 0.88 → 0.95)
+       ════════════════════════════════════════════════════════════ */
     .page-hero {
-      min-height: 40vh;
-      background-color: var(--green-700);
-      background-image: repeating-linear-gradient(
-        135deg,
-        transparent,
-        transparent 24px,
-        oklch(100% 0 0 / 3%) 24px,
-        oklch(100% 0 0 / 3%) 25px
-      );
+      min-height: 56vh;
+      background-color: var(--gray-950);
       display: flex;
       align-items: flex-end;
       padding-block: clamp(5rem, 12vw, 10rem) clamp(3rem, 6vw, 5rem);
       position: relative;
       overflow: hidden;
     }
-    .page-hero::after {
-      content: '';
+    .hero-foto-img {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, transparent 60%, oklch(37% 0.17 145 / 40%));
-      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%; /* ← ajuste o foco vertical aqui */
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      /* ← gradiente: escurece mais na esquerda (onde fica o texto) */
+      background: linear-gradient(
+        105deg,
+        oklch(8% 0 0 / 82%) 0%,
+        oklch(22% 0.12 145 / 60%) 55%,
+        oklch(8% 0 0 / 30%) 100%
+      );
     }
     .page-hero .wrap { position: relative; z-index: 1; }
     .page-hero-inner { max-width: 720px; }
     .page-hero .eyebrow { color: var(--green-300); }
     .page-hero h1 { color: var(--white); margin-bottom: 1.25rem; }
-    .page-hero p { color: oklch(86% 0.08 148); font-size: clamp(1rem, 1.5vw, 1.2rem); line-height: 1.75; max-width: 560px; }
+    .page-hero p { color: oklch(92% 0 0 / 78%); font-size: clamp(1rem, 1.5vw, 1.2rem); line-height: 1.75; max-width: 560px; }
 
     /* HISTÓRIA */
     .historia-grid {
@@ -200,9 +213,49 @@
     }
     .timeline-desc { font-size: 0.875rem; color: var(--gray-600); line-height: 1.65; }
 
-    /* MISSÃO VALORES */
-    .valores-section { background: var(--gray-50); }
-    .valores-header { margin-bottom: clamp(2.5rem, 5vw, 4rem); max-width: 640px; }
+    /* ════════════════════════════════════════════════════════════
+       NOSSOS PILARES — FOTO LATERAL
+       ▸ Para trocar a foto: edite o atributo src do <img id="pilaresFoto">
+         no HTML abaixo (busque por id="pilaresFoto")
+       ▸ Para ajustar o foco da foto: edite object-position em .pilares-foto-img
+         Ex: "center top" → mostra mais o topo | "center 60%" → desce o foco
+       ▸ Para remover a foto: delete o <div class="pilares-foto-col"> e troque
+         .pilares-layout por apenas <div class="wrap"> sem grid
+       ════════════════════════════════════════════════════════════ */
+    .valores-section { background: var(--gray-50); padding: 0 !important; overflow: hidden; }
+    .pilares-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      min-height: 600px;
+    }
+    @media (min-width: 900px) {
+      .pilares-layout { grid-template-columns: 420px 1fr; }
+    }
+    @media (min-width: 1200px) {
+      .pilares-layout { grid-template-columns: 480px 1fr; }
+    }
+    .pilares-foto-col {
+      position: relative;
+      min-height: 320px;
+      overflow: hidden;
+    }
+    .pilares-foto-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%; /* ← ajuste o foco vertical aqui */
+    }
+    .pilares-foto-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, oklch(8% 0 0 / 20%), transparent);
+    }
+    .pilares-content-col {
+      padding: clamp(3rem, 7vw, 5rem) clamp(2rem, 5vw, 4rem);
+    }
+    .valores-header { margin-bottom: clamp(2rem, 4vw, 3rem); max-width: 560px; }
     .valores-header h2 { margin-bottom: 0.75rem; }
     .valores-header p { color: var(--gray-600); font-size: 1rem; line-height: 1.75; }
     .valor-strip {
@@ -454,8 +507,27 @@
 
 <main>
 
-  <!-- 1. PAGE HERO -->
+<!-- 1. PAGE HERO ═══════════════════════════════════════════════════════════
+     FOTO DE FUNDO DO HERO
+     ▸ Para trocar a imagem: edite o atributo src da tag <img id="heroFoto">
+     ▸ Caminho atual: ./assets/foto-fachada.png
+     ▸ Tamanho recomendado: 1600×900 px (proporção 16:9 ou 3:2)
+     ▸ Para ajustar foco vertical da foto: edite object-position no CSS (.hero-foto-img)
+     ▸ Para escurecer mais: aumente a opacidade no gradiente (.hero-overlay no CSS)
+     ══════════════════════════════════════════════════════════════════════ -->
   <section class="page-hero" aria-labelledby="hero-heading">
+    <!-- IMAGEM DE FUNDO — troque o src abaixo para mudar a foto -->
+    <img
+      id="heroFoto"
+      class="hero-foto-img"
+      src="./assets/foto-fachada.png"
+      alt=""
+      aria-hidden="true"
+      loading="eager"
+      fetchpriority="high"
+    >
+    <!-- Overlay escuro: garante legibilidade do texto sobre qualquer foto -->
+    <div class="hero-overlay" aria-hidden="true"></div>
     <div class="wrap">
       <div class="page-hero-inner">
         <span class="eyebrow eyebrow-light" data-reveal>Nossa História</span>
@@ -508,37 +580,63 @@
     </div>
   </section>
 
-  <!-- 3. MISSÃO / VALORES -->
-  <section class="section valores-section" aria-labelledby="valores-heading">
-    <div class="wrap">
-      <div class="valores-header">
-        <span class="eyebrow" data-reveal>Nossos Pilares</span>
-        <h2 class="display display-md" id="valores-heading" data-reveal data-delay="100">O que nos guia</h2>
-        <p data-reveal data-delay="200">Três compromissos que definem cada projeto, cada laudo e cada treinamento que entregamos.</p>
+<!-- 3. NOSSOS PILARES ════════════════════════════════════════════════════
+     FOTO LATERAL DA SEÇÃO NOSSOS PILARES
+     ▸ Para trocar a imagem: edite o atributo src da tag <img id="pilaresFoto">
+     ▸ Fonte atual: Unsplash (trabalhador com capacete laranja em obra)
+     ▸ Para usar foto local: troque o src pelo caminho ex: ./assets/foto-pilares.png
+     ▸ Tamanho recomendado se local: 600×900 px (retrato / vertical)
+     ▸ Para ajustar foco: edite object-position no CSS (.pilares-foto-img)
+     ▸ Para remover a foto: delete a <div class="pilares-foto-col"> inteira
+       e adicione class="wrap" no pai para retornar ao layout sem colunas
+     ══════════════════════════════════════════════════════════════════════ -->
+  <section class="valores-section" aria-labelledby="valores-heading">
+    <div class="pilares-layout">
+
+      <!-- COLUNA DA FOTO — troque o src abaixo para mudar a imagem -->
+      <div class="pilares-foto-col">
+        <img
+          id="pilaresFoto"
+          class="pilares-foto-img"
+          src="https://images.unsplash.com/photo-1622612063021-116cc3407145?auto=format&fit=crop&w=800&q=80"
+          alt="Profissional de segurança do trabalho em campo com capacete e EPIs"
+          loading="lazy"
+        >
+        <div class="pilares-foto-overlay" aria-hidden="true"></div>
       </div>
-      <div role="list">
-        <article class="valor-strip" role="listitem" data-reveal>
-          <div class="valor-num" aria-hidden="true">1</div>
-          <div class="valor-content">
-            <h3>Conformidade Técnica</h3>
-            <p>Cada documento, laudo e programa entregue pela PROTEÇÃO é assinado por profissional habilitado, com Responsabilidade Técnica (RT) registrada no CREA-RO. Entregamos conformidade real — não checklist. Nossos documentos passam por auditorias do Ministério do Trabalho, eSocial, Corpo de Bombeiros e órgãos ambientais sem ressalvas.</p>
-          </div>
-        </article>
-        <article class="valor-strip" role="listitem" data-reveal data-delay="100">
-          <div class="valor-num" aria-hidden="true">2</div>
-          <div class="valor-content">
-            <h3>Parceiro Regional</h3>
-            <p>Conhecemos a realidade do interior amazônico — distâncias longas, logística desafiadora e especificidades do agronegócio, da mineração e da pecuária. Nossos profissionais vivem e trabalham na região, o que garante diagnósticos precisos e soluções adaptadas, não copiadas de grandes centros.</p>
-          </div>
-        </article>
-        <article class="valor-strip" role="listitem" data-reveal data-delay="200">
-          <div class="valor-num" aria-hidden="true">3</div>
-          <div class="valor-content">
-            <h3>Solução Completa</h3>
-            <p>Do PGR ao licenciamento ambiental, do PPCI ao laudo estrutural, da venda de EPI ao treinamento em plataforma própria: a PROTEÇÃO elimina a necessidade de contratar múltiplos fornecedores. Gestão integrada, responsabilidade única, resultado coerente.</p>
-          </div>
-        </article>
+
+      <!-- COLUNA DO CONTEÚDO -->
+      <div class="pilares-content-col">
+        <div class="valores-header">
+          <span class="eyebrow" data-reveal>Nossos Pilares</span>
+          <h2 class="display display-md" id="valores-heading" data-reveal data-delay="100">O que nos guia</h2>
+          <p data-reveal data-delay="200">Três compromissos que definem cada projeto, cada laudo e cada treinamento que entregamos.</p>
+        </div>
+        <div role="list">
+          <article class="valor-strip" role="listitem" data-reveal>
+            <div class="valor-num" aria-hidden="true">1</div>
+            <div class="valor-content">
+              <h3>Conformidade Técnica</h3>
+              <p>Cada documento, laudo e programa entregue pela PROTEÇÃO é assinado por profissional habilitado, com Responsabilidade Técnica (RT) registrada no CREA-RO. Entregamos conformidade real — não checklist. Nossos documentos passam por auditorias do Ministério do Trabalho, eSocial, Corpo de Bombeiros e órgãos ambientais sem ressalvas.</p>
+            </div>
+          </article>
+          <article class="valor-strip" role="listitem" data-reveal data-delay="100">
+            <div class="valor-num" aria-hidden="true">2</div>
+            <div class="valor-content">
+              <h3>Parceiro Regional</h3>
+              <p>Conhecemos a realidade do interior amazônico — distâncias longas, logística desafiadora e especificidades do agronegócio, da mineração e da pecuária. Nossos profissionais vivem e trabalham na região, o que garante diagnósticos precisos e soluções adaptadas, não copiadas de grandes centros.</p>
+            </div>
+          </article>
+          <article class="valor-strip" role="listitem" data-reveal data-delay="200">
+            <div class="valor-num" aria-hidden="true">3</div>
+            <div class="valor-content">
+              <h3>Solução Completa</h3>
+              <p>Do PGR ao licenciamento ambiental, do PPCI ao laudo estrutural, da venda de EPI ao treinamento em plataforma própria: a PROTEÇÃO elimina a necessidade de contratar múltiplos fornecedores. Gestão integrada, responsabilidade única, resultado coerente.</p>
+            </div>
+          </article>
+        </div>
       </div>
+
     </div>
   </section>
 

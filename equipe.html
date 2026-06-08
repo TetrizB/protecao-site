@@ -136,61 +136,336 @@
     .btn-ghost:hover { background: oklch(100% 0 0 / 10%); border-color: oklch(100% 0 0 / 60%); }
     :focus-visible { outline: 3px solid var(--green-500); outline-offset: 3px; border-radius: 4px; }
 
-    /* ─── PAGE HERO ─────────────────────────────────────────────── */
-    .page-hero {
-      background: var(--green-700);
-      padding-block: clamp(3.5rem, 7vw, 6rem);
+    /* ═══ HERO EQUIPE ═══════════════════════════════════════════════ */
+
+    /* Animações de entrada — disparam no carregamento */
+    @keyframes heroReveal {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+    @keyframes heroRevealLeft {
+      from { opacity: 0; transform: translateX(-16px); }
+      to   { opacity: 1; transform: translateX(0);     }
+    }
+    @keyframes heroScaleIn {
+      from { opacity: 0; transform: scale(0.94); }
+      to   { opacity: 1; transform: scale(1);    }
+    }
+
+    .hero-equipe {
       position: relative;
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
       overflow: hidden;
+      background: oklch(6% 0.015 145);
     }
-    .page-hero::before {
-      content: '';
+
+    /* ── Wrapper da foto (espaço extra para parallax) ── */
+    .hero-photo-wrap {
       position: absolute;
-      inset: 0;
-      background-image: repeating-linear-gradient(
-        -45deg,
-        oklch(100% 0 0 / 3%) 0px,
-        oklch(100% 0 0 / 3%) 1px,
-        transparent 1px,
-        transparent 12px
-      );
+      inset: -12% 0;          /* 12% extra topo+base = espaço de scroll */
+      will-change: transform;
     }
-    .page-hero-inner { position: relative; z-index: 1; }
-    .page-hero-kicker {
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 28%;
+      /* Tratamento: contraste + saturação controlados, sem descaracterizar rostos */
+      filter: brightness(0.65) contrast(1.12) saturate(0.82);
+    }
+
+    /* ── Camada 1: gradiente direcional para zona de leitura ── */
+    .hero-equipe::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 1;
+      background:
+        linear-gradient(108deg,
+          oklch(6% 0.015 145 / 98%) 0%,
+          oklch(6% 0.015 145 / 90%) 30%,
+          oklch(6% 0.015 145 / 55%) 55%,
+          oklch(6% 0.015 145 / 18%) 78%,
+          transparent 100%
+        ),
+        linear-gradient(to top,
+          oklch(6% 0.015 145 / 95%) 0%,
+          oklch(6% 0.015 145 / 40%) 22%,
+          transparent 45%
+        );
+    }
+    /* ── Camada 2: vignete radial — profundidade nas bordas ── */
+    .hero-equipe::after {
+      content: '';
+      position: absolute; inset: 0; z-index: 2;
+      background: radial-gradient(ellipse at 60% 50%,
+        transparent 30%,
+        oklch(0% 0 0 / 45%) 100%
+      );
+      pointer-events: none;
+    }
+    /* ── Camada 3: toque verde-marca nas sombras (multiply 10%) ── */
+    .hero-color-accent {
+      position: absolute; inset: 0; z-index: 3;
+      background: oklch(37% 0.17 145 / 10%);
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+    /* ── Linha vertical de luz — cria borda sutil esq/dir ── */
+    .hero-light-edge {
+      position: absolute; top: 0; bottom: 0; left: 0; z-index: 4;
+      width: 3px;
+      background: linear-gradient(to bottom,
+        transparent 0%,
+        var(--green-500) 30%,
+        var(--green-600) 70%,
+        transparent 100%
+      );
+      opacity: 0.6;
+    }
+
+    /* ── Conteúdo ── */
+    .hero-equipe-body {
+      position: relative; z-index: 10;
+      padding-block: clamp(6rem, 12vw, 9rem) 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: end;
+    }
+    @media (min-width: 900px) {
+      .hero-equipe-body { grid-template-columns: 58fr 42fr; gap: 4rem; }
+    }
+
+    /* Coluna esquerda — texto principal */
+    .hero-main-col {}
+
+    .hero-pre {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      opacity: 0; animation: heroRevealLeft 0.7s var(--ease) 0.05s forwards;
+    }
+    .hero-pre-rule {
+      display: block; width: 2rem; height: 2px;
+      background: var(--green-500); flex-shrink: 0;
+    }
+    .hero-pre-text {
+      font-family: var(--fh); font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.22em; color: var(--green-400);
+    }
+
+    .hero-title {
+      font-family: var(--fh); font-weight: 900;
+      font-size: clamp(3rem, 8.5vw, 7.75rem);
+      line-height: 0.875; text-transform: uppercase; letter-spacing: -0.025em;
+      color: var(--white); margin-bottom: 1.75rem;
+      opacity: 0; animation: heroReveal 0.85s var(--ease) 0.2s forwards;
+    }
+    .hero-title-accent {
+      display: block; color: var(--green-400);
+      font-size: 0.82em;
+    }
+
+    .hero-desc {
+      font-size: clamp(0.9375rem, 1.3vw, 1.0625rem);
+      line-height: 1.78; color: oklch(87% 0 0 / 78%);
+      max-width: 490px; margin-bottom: 2.25rem;
+      opacity: 0; animation: heroReveal 0.8s var(--ease) 0.38s forwards;
+    }
+
+    /* Diferenciais mobile (lista compacta) */
+    .hero-checks {
+      display: flex; flex-direction: column; gap: 0.5rem;
+      margin-bottom: 2rem;
+      opacity: 0; animation: heroReveal 0.8s var(--ease) 0.48s forwards;
+    }
+    @media (min-width: 900px) { .hero-checks { display: none; } }
+    .hero-check {
+      display: flex; align-items: center; gap: 0.625rem;
+      font-size: 0.8125rem; font-weight: 500; color: oklch(82% 0 0 / 88%);
+    }
+    .hero-check-ico {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--green-700); display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0;
+    }
+    .hero-check-ico svg { width: 9px; height: 9px; color: var(--white); }
+
+    .hero-actions {
+      display: flex; gap: 0.875rem; flex-wrap: wrap;
+      opacity: 0; animation: heroReveal 0.8s var(--ease) 0.55s forwards;
+    }
+    .btn-hero-primary {
+      background: var(--white); color: var(--green-700); font-weight: 700;
+    }
+    .btn-hero-primary:hover {
+      background: oklch(96% 0.04 148);
+      box-shadow: 0 8px 28px oklch(0% 0 0 / 28%);
+    }
+    .btn-hero-ghost {
+      border: 2px solid oklch(100% 0 0 / 28%); color: var(--white);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    }
+    .btn-hero-ghost:hover { border-color: oklch(100% 0 0 / 55%); background: oklch(100% 0 0 / 8%); }
+
+    /* Coluna direita — diferenciais (desktop only) */
+    .hero-diff-col {
+      display: none; flex-direction: column; gap: 0;
+      opacity: 0; animation: heroReveal 0.9s var(--ease) 0.42s forwards;
+    }
+    @media (min-width: 900px) { .hero-diff-col { display: flex; } }
+
+    .hero-diff-card {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 0.875rem 1.125rem; border-radius: 10px;
+      border-bottom: 1px solid oklch(100% 0 0 / 8%);
+      transition: background 0.18s;
+    }
+    .hero-diff-card:last-child { border-bottom: none; }
+    .hero-diff-card:hover { background: oklch(100% 0 0 / 6%); }
+
+    .hero-diff-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--green-700); display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0; margin-top: 1px;
+    }
+    .hero-diff-icon svg { width: 12px; height: 12px; color: var(--white); }
+
+    .hero-diff-text strong {
+      display: block; font-size: 0.875rem; font-weight: 600;
+      color: var(--white); line-height: 1.3; margin-bottom: 0.2rem;
+    }
+    .hero-diff-text span {
+      font-size: 0.75rem; color: oklch(62% 0 0); line-height: 1.4;
+    }
+
+    /* ── Faixa de estatísticas ancorada na base ── */
+    .hero-stats-strip {
+      position: relative; z-index: 10;
+      margin-top: 3rem;
+      border-top: 1px solid oklch(100% 0 0 / 10%);
+      background: oklch(100% 0 0 / 5%);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    }
+    .hero-stats-inner {
+      display: flex; flex-wrap: wrap; gap: 0;
+      max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter);
+    }
+    .hero-stat {
+      flex: 1; min-width: 120px;
+      padding: 1.125rem 1.25rem;
+      border-right: 1px solid oklch(100% 0 0 / 10%);
+      opacity: 0;
+      animation: heroReveal 0.7s var(--ease) calc(0.65s + var(--d, 0) * 0.1s) forwards;
+    }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat-val {
+      font-family: var(--fh); font-weight: 900;
+      font-size: clamp(1.375rem, 2.5vw, 2rem);
+      line-height: 1; letter-spacing: -0.02em;
+      color: var(--green-400); margin-bottom: 0.2rem;
+    }
+    .hero-stat-lbl {
+      font-size: 0.68rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.1em; color: oklch(60% 0 0);
+    }
+
+    /* ── Mobile: remove foto, usa fundo sólido da marca ── */
+    @media (max-width: 767px) {
+      .hero-equipe { min-height: 100svh; background: var(--green-700); }
+      .hero-photo-wrap { display: none; }
+      .hero-color-accent { display: none; }
+      .hero-equipe::before {
+        background: radial-gradient(ellipse at 70% 40%,
+          oklch(50% 0.22 148 / 22%) 0%, transparent 65%
+        );
+      }
+      .hero-equipe::after { display: none; }
+    }
+
+    /* ─── SEÇÃO FOTO COMPLETA ────────────────────────────────────── */
+    .team-photo-section {
+      background: var(--green-50);
+      padding-block: clamp(3rem, 7vw, 5.5rem);
+      border-top: 1px solid var(--green-100);
+    }
+    .team-photo-section .wrap { display: flex; flex-direction: column; gap: 2rem; }
+    .team-photo-header { text-align: center; }
+    .team-photo-header .eyebrow { margin-bottom: 0.75rem; }
+    .team-photo-headline {
       font-family: var(--fh);
-      font-size: 0.75rem;
-      font-weight: 700;
+      font-weight: 900;
+      font-size: clamp(1.75rem, 4vw, 3rem);
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--green-300);
-      margin-bottom: 1.25rem;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--gray-950);
+      margin-bottom: 0.75rem;
+    }
+    .team-photo-headline em { font-style: normal; color: var(--green-600); }
+    .team-photo-sub {
+      font-size: 0.9375rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-inline: auto;
+    }
+    /* Container da foto — sem overflow: hidden para não cortar */
+    .team-photo-figure {
+      margin: 0;
+      position: relative;
+    }
+    .team-photo-img {
+      width: 100%;
+      height: auto; /* dimensões originais preservadas — sem corte */
+      display: block;
+      border-radius: 14px;
+      /* Leve melhora de percepção sem alterar cores da equipe */
+      filter: brightness(0.97) contrast(1.05) saturate(0.93);
+      box-shadow:
+        0 4px 16px oklch(0% 0 0 / 8%),
+        0 20px 48px oklch(0% 0 0 / 12%);
+    }
+    @media (max-width: 639px) {
+      .team-photo-img { border-radius: 10px; }
+    }
+    .team-photo-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      padding: 1.125rem 1.25rem;
+      background: var(--white);
+      border: 1px solid var(--green-100);
+      border-radius: 0 0 14px 14px;
+      margin-top: -4px; /* cola na base da foto */
+    }
+    .team-photo-caption-left {
       display: flex;
       align-items: center;
       gap: 0.75rem;
     }
-    .page-hero-kicker::before {
-      content: '';
-      display: inline-block;
-      width: 2rem;
-      height: 2px;
-      background: var(--green-400);
+    .team-photo-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--green-500);
       flex-shrink: 0;
     }
-    .page-hero h1 {
+    .team-photo-name {
       font-family: var(--fh);
-      font-weight: 900;
-      font-size: clamp(3rem, 7vw, 6.5rem);
-      line-height: 0.93;
+      font-size: 1rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: -0.02em;
-      color: var(--white);
-      margin-bottom: 1.5rem;
+      letter-spacing: 0.04em;
+      color: var(--gray-800);
     }
-    .page-hero-desc {
-      font-size: clamp(0.9375rem, 1.4vw, 1.0625rem);
-      line-height: 1.75;
-      color: oklch(100% 0 0 / 75%);
-      max-width: 560px;
+    .team-photo-meta {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gray-500);
+      letter-spacing: 0.06em;
     }
 
     /* ─── INTRO ──────────────────────────────────────────────────── */
@@ -522,17 +797,136 @@
 
   <main>
 
-    <!-- ─── HERO ─── -->
-    <section class="page-hero" aria-label="Nossa Equipe">
-      <div class="wrap page-hero-inner">
-        <p class="page-hero-kicker" data-reveal>Quem faz acontecer</p>
-        <h1 data-reveal data-delay="100">
-          Nossa<br>Equipe
-        </h1>
-        <p class="page-hero-desc" data-reveal data-delay="200">
-          Profissionais especializados em saúde e segurança do trabalho, engenharia, meio ambiente e EPIs — atuando com responsabilidade técnica registrada desde 2011.
-        </p>
+    <!-- ═══ HERO EQUIPE ═══════════════════════════════════════════ -->
+    <section class="hero-equipe" id="heroSection" aria-label="Nossa Equipe — PROTEÇÃO">
+
+      <!-- Foto com espaço extra para efeito parallax -->
+      <div class="hero-photo-wrap" id="heroParallax" aria-hidden="true">
+        <img
+          src="./assets/foto-da-equipe.png"
+          alt=""
+          fetchpriority="high"
+          decoding="sync"
+          width="1600"
+          height="900"
+        >
       </div>
+
+      <!-- Camadas de overlay -->
+      <div class="hero-color-accent" aria-hidden="true"></div>
+      <div class="hero-light-edge"   aria-hidden="true"></div>
+
+      <!-- Corpo do hero -->
+      <div class="wrap hero-equipe-body">
+
+        <!-- Coluna esquerda — texto principal -->
+        <div class="hero-main-col">
+
+          <div class="hero-pre">
+            <span class="hero-pre-rule" aria-hidden="true"></span>
+            <span class="hero-pre-text">Quem protege quem protege você</span>
+          </div>
+
+          <h1 class="hero-title">
+            Expertise<br>Técnica.
+            <span class="hero-title-accent">Resultados<br>Reais.</span>
+          </h1>
+
+          <p class="hero-desc">
+            Equipe multidisciplinar credenciada em Saúde e Segurança do Trabalho, Engenharia registrada no CREA-RO e Meio Ambiente — atuando com responsabilidade técnica identificada em cada serviço desde 2011.
+          </p>
+
+          <!-- Lista compacta de diferenciais (visível apenas no mobile) -->
+          <div class="hero-checks" aria-label="Nossos diferenciais">
+            <span class="hero-check">
+              <span class="hero-check-ico" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>
+              Equipe Multidisciplinar Especializada
+            </span>
+            <span class="hero-check">
+              <span class="hero-check-ico" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>
+              Responsáveis Técnicos Credenciados
+            </span>
+            <span class="hero-check">
+              <span class="hero-check-ico" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>
+              Saúde, Segurança, Engenharia e Meio Ambiente
+            </span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="contato.html" class="btn btn-hero-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              Falar com a Equipe
+            </a>
+            <a href="servicos.html" class="btn btn-hero-ghost">
+              Ver Serviços
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Coluna direita — diferenciais em cartões (desktop) -->
+        <nav class="hero-diff-col" aria-label="Diferenciais da PROTEÇÃO">
+          <div class="hero-diff-card">
+            <span class="hero-diff-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>
+            <div class="hero-diff-text">
+              <strong>Equipe Multidisciplinar Especializada</strong>
+              <span>SST, engenharia, meio ambiente e EPI sob um único contrato.</span>
+            </div>
+          </div>
+          <div class="hero-diff-card">
+            <span class="hero-diff-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>
+            <div class="hero-diff-text">
+              <strong>Mais de 14 Anos de Experiência Regional</strong>
+              <span>Fundada em Vilhena em 2011, atendendo RO, MT e AC.</span>
+            </div>
+          </div>
+          <div class="hero-diff-card">
+            <span class="hero-diff-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>
+            <div class="hero-diff-text">
+              <strong>Responsáveis Técnicos Credenciados</strong>
+              <span>CREA-RO 9182EMRO · Credenciada eSocial · Bombeiros RO.</span>
+            </div>
+          </div>
+          <div class="hero-diff-card">
+            <span class="hero-diff-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>
+            <div class="hero-diff-text">
+              <strong>Saúde e Segurança do Trabalho</strong>
+              <span>PGR, PCMSO, LTCAT, CIPA, laudos e gestão eSocial.</span>
+            </div>
+          </div>
+          <div class="hero-diff-card">
+            <span class="hero-diff-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>
+            <div class="hero-diff-text">
+              <strong>Engenharia e Meio Ambiente</strong>
+              <span>Projetos PPCI, SPDA, licenciamento ambiental e PGRS.</span>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+
+      <!-- Faixa de estatísticas na base do hero -->
+      <div class="hero-stats-strip" role="list" aria-label="Números da empresa">
+        <div class="hero-stats-inner">
+          <div class="hero-stat" style="--d:0" role="listitem">
+            <p class="hero-stat-val">14+</p>
+            <p class="hero-stat-lbl">Anos de Atuação</p>
+          </div>
+          <div class="hero-stat" style="--d:1" role="listitem">
+            <p class="hero-stat-val">RO·MT·AC</p>
+            <p class="hero-stat-lbl">Estados Atendidos</p>
+          </div>
+          <div class="hero-stat" style="--d:2" role="listitem">
+            <p class="hero-stat-val">4</p>
+            <p class="hero-stat-lbl">Áreas Especializadas</p>
+          </div>
+          <div class="hero-stat" style="--d:3" role="listitem">
+            <p class="hero-stat-val">CREA</p>
+            <p class="hero-stat-lbl">9182EMRO · Credenciada</p>
+          </div>
+        </div>
+      </div>
+
     </section>
 
     <!-- ─── INTRO ─── -->
@@ -569,6 +963,42 @@
             Todos os laudos e documentos emitidos pela PROTEÇÃO têm responsabilidade técnica identificada, ART quando aplicável e estão aptos a qualquer fiscalização do MTE, CREA, Corpo de Bombeiros ou órgãos ambientais.
           </p>
         </div>
+      </div>
+    </section>
+
+    <!-- ─── FOTO DA EQUIPE — imagem completa, sem corte ─── -->
+    <section class="team-photo-section" aria-labelledby="team-photo-heading">
+      <div class="wrap">
+
+        <header class="team-photo-header" data-reveal>
+          <p class="eyebrow">As pessoas por trás de cada solução</p>
+          <h2 class="team-photo-headline" id="team-photo-heading">
+            Uma equipe<br><em>de verdade.</em>
+          </h2>
+          <p class="team-photo-sub">
+            Profissionais com formação técnica registrada, atuando lado a lado desde 2011 para entregar documentação séria, orientação real e resultados que passam em qualquer fiscalização.
+          </p>
+        </header>
+
+        <figure class="team-photo-figure" data-reveal data-delay="150">
+          <img
+            src="./assets/foto-da-equipe.png"
+            alt="Equipe técnica PROTEÇÃO — profissionais de segurança do trabalho, engenharia civil e meio ambiente reunidos em Vilhena, Rondônia"
+            class="team-photo-img"
+            loading="lazy"
+            decoding="async"
+            width="1600"
+            height="900"
+          >
+          <figcaption class="team-photo-caption">
+            <div class="team-photo-caption-left">
+              <span class="team-photo-dot" aria-hidden="true"></span>
+              <span class="team-photo-name">Equipe PROTEÇÃO</span>
+            </div>
+            <span class="team-photo-meta">Vilhena – RO &nbsp;·&nbsp; Desde 2011</span>
+          </figcaption>
+        </figure>
+
       </div>
     </section>
 
@@ -862,6 +1292,24 @@
 
     const waFloat = document.getElementById('waFloat');
     if (waFloat) setTimeout(() => waFloat.classList.add('show'), 1500);
+
+    // PARALLAX — foto do hero move 30% mais devagar que o scroll
+    const heroParallax = document.getElementById('heroParallax');
+    if (heroParallax && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const heroSection = document.getElementById('heroSection');
+      let ticking = false;
+      function applyParallax() {
+        const scrolled = window.scrollY;
+        const heroH = heroSection ? heroSection.offsetHeight : window.innerHeight;
+        if (scrolled < heroH + 200) {
+          heroParallax.style.transform = `translateY(${scrolled * 0.3}px)`;
+        }
+        ticking = false;
+      }
+      window.addEventListener('scroll', () => {
+        if (!ticking) { requestAnimationFrame(applyParallax); ticking = true; }
+      }, { passive: true });
+    }
   </script>
 </body>
 </html>
