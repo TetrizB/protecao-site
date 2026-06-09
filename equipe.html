@@ -165,18 +165,18 @@
       background: url('./assets/plano-de-fundo.png') center / cover no-repeat;
       opacity: 0.06; pointer-events: none;
     }
-    /* Gradiente esq→dir: protege texto e funde borda esquerda da foto */
+    /* Máscara escura sólida na área de texto + fade suave para a direita */
     .hero-equipe::after {
       content: ''; position: absolute; inset: 0; z-index: 3;
       background:
         linear-gradient(to right,
-          oklch(19% 0.12 145 / 99%) 0%,
-          oklch(19% 0.12 145 / 95%) 28%,
-          oklch(19% 0.12 145 / 68%) 46%,
-          oklch(19% 0.12 145 / 22%) 60%,
-          transparent 74%
+          oklch(19% 0.12 145)        0%,   /* sólido — contraste perfeito */
+          oklch(19% 0.12 145)        44%,  /* cobre toda a coluna de texto */
+          oklch(19% 0.12 145 / 82%) 54%,  /* transição suave */
+          oklch(19% 0.12 145 / 32%) 66%,
+          transparent                78%
         ),
-        radial-gradient(ellipse at 20% 58%, oklch(46% 0.22 148 / 14%) 0%, transparent 46%);
+        radial-gradient(ellipse at 20% 58%, oklch(46% 0.22 148 / 12%) 0%, transparent 44%);
       pointer-events: none;
     }
 
@@ -241,12 +241,14 @@
       font-size: clamp(4.5rem, 10vw, 8.5rem);
       line-height: 0.86; text-transform: uppercase; letter-spacing: -0.03em;
       color: var(--white); margin-bottom: 1.5rem;
+      text-shadow: 0 2px 24px oklch(0% 0 0 / 45%);
       opacity: 0; animation: heroReveal 0.82s var(--ease) 0.18s forwards;
     }
     .hero-main-desc {
       font-size: clamp(0.875rem, 1.1vw, 0.9375rem);
-      line-height: 1.78; color: oklch(88% 0 0 / 72%);
+      line-height: 1.78; color: oklch(92% 0 0 / 88%);
       max-width: 380px; margin-bottom: 2.5rem;
+      text-shadow: 0 1px 10px oklch(0% 0 0 / 35%);
       opacity: 0; animation: heroReveal 0.8s var(--ease) 0.32s forwards;
     }
     .hero-main-desc strong { color: var(--white); font-weight: 600; }
