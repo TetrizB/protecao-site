@@ -287,33 +287,18 @@
     }
     .hero-location-badge svg { width: 13px; height: 13px; color: var(--green-400); flex-shrink: 0; }
 
-    /* Mobile: stack vertical — imagem landscape abaixo do texto */
+    /* Mobile: apenas texto, sem imagem */
     @media (max-width: 899px) {
-      .hero-equipe { height: auto; min-height: auto; flex-direction: column; }
+      .hero-equipe { height: auto; min-height: auto; }
       .hero-equipe::after {
-        background: linear-gradient(to bottom,
-          oklch(14% 0.09 145 / 97%) 0%,
-          oklch(14% 0.09 145 / 84%) 52%,
-          oklch(14% 0.09 145 / 28%) 72%,
-          transparent 90%
+        background: linear-gradient(
+          oklch(14% 0.09 145 / 92%) 0%,
+          transparent 100%
         );
       }
-      .hero-content-wrap { height: auto; width: 100%; padding-block: 4.5rem 1rem; }
+      .hero-content-wrap { height: auto; width: 100%; padding-block: 5rem 4rem; }
       .hero-left-col { max-width: 100%; padding-block: 0; }
-      .hero-img-layer {
-        position: relative; width: 100%;
-        height: 56vw; min-height: 240px;
-        -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-        mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-      }
-      .hero-team-img {
-        top: 50%; right: 50%;
-        transform: translate(50%, -50%);
-        width: 100%; height: auto;
-        -webkit-mask-image: none;
-        mask-image: none;
-        filter: brightness(0.92) contrast(1.08) saturate(1.06);
-      }
+      .hero-img-layer { display: none; }
     }
     /* ─── SEÇÃO FOTO COMPLETA ────────────────────────────────────── */
     .team-photo-section {
