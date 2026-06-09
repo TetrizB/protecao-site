@@ -321,7 +321,11 @@
     }
 
     /* ─── PROBLEMA → SOLUÇÃO ─────────────────────────────────────── */
-    .ps-section { background: var(--white); }
+    .ps-section {
+      background:
+        linear-gradient(oklch(100% 0 0 / 44%), oklch(100% 0 0 / 88%)),
+        url('./assets/plano-de-fundo.png') center / cover no-repeat;
+    }
     .ps-grid {
       display: grid;
       grid-template-columns: 1fr;
