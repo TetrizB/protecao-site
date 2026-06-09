@@ -155,7 +155,8 @@
       position: relative;
       background: var(--green-700);
       overflow: hidden;
-      min-height: 88vh;
+      height: 92vh;
+      min-height: 620px;
       display: flex;
       align-items: stretch;
     }
@@ -177,14 +178,15 @@
       pointer-events: none;
     }
 
-    /* Grid 2 colunas */
+    /* Grid 2 colunas — herda a altura do hero */
     .hero-equipe-grid {
       position: relative; z-index: 1;
       display: grid; grid-template-columns: 1fr;
       width: 100%; align-items: stretch;
+      height: 100%;
     }
     @media (min-width: 900px) {
-      .hero-equipe-grid { grid-template-columns: 48fr 52fr; }
+      .hero-equipe-grid { grid-template-columns: 46fr 54fr; }
     }
 
     /* ── Coluna esquerda ── */
@@ -257,29 +259,29 @@
     /* ── Coluna direita — PNG da equipe ── */
     .hero-right-col {
       position: relative;
-      display: flex; align-items: flex-end; justify-content: center;
+      overflow: hidden;   /* recorta qualquer overflow horizontal */
     }
+    /* Imagem ancorada na base, altura = 92% do hero, largura automática */
     .hero-team-img {
-      width: 100%; max-height: 88vh;
-      object-fit: contain; object-position: bottom center;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 92%;
+      width: auto;
+      max-width: unset;   /* sem limite de largura — imagem é height-driven */
       display: block;
       opacity: 0; animation: heroPngIn 1s var(--ease) 0.28s forwards;
-      filter: drop-shadow(-6px 0 28px oklch(0% 0 0 / 28%));
-    }
-    /* Gradiente apaga o pé da foto na base */
-    .hero-right-col::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 72px;
-      background: linear-gradient(to top, var(--green-700) 0%, transparent 100%);
-      pointer-events: none;
+      filter: drop-shadow(-8px 0 32px oklch(0% 0 0 / 32%));
     }
 
-    /* Mobile */
+    /* Mobile: coluna direita com altura fixa, imagem centralizada */
     @media (max-width: 899px) {
-      .hero-equipe { min-height: auto; }
-      .hero-left-col { padding-bottom: 1.5rem; }
-      .hero-right-col { padding-block: 0 0; }
-      .hero-right-col::after { height: 36px; }
-      .hero-team-img { max-height: 55vw; }
+      .hero-equipe { height: auto; min-height: auto; }
+      .hero-equipe-grid { height: auto; }
+      .hero-left-col { padding-bottom: 0; }
+      .hero-right-col { height: 52vw; min-height: 220px; }
+      .hero-team-img { height: 100%; left: 50%; transform: translateX(-50%); }
     }
     /* ─── SEÇÃO FOTO COMPLETA ────────────────────────────────────── */
     .team-photo-section {
