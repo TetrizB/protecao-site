@@ -153,7 +153,7 @@
 
     .hero-equipe {
       position: relative;
-      background: var(--green-900);
+      background: oklch(14% 0.09 145);
       overflow: hidden;
       height: clamp(520px, 64vh, 820px);
       display: flex;
@@ -197,33 +197,36 @@
     .hero-img-layer {
       position: absolute;
       top: 0; right: 0; bottom: 0;
-      width: 64%;
+      width: 62%;
       z-index: 2;
       pointer-events: none;
-      isolation: auto;
+      /* fade lateral esquerdo no container — sem mix-blend-mode */
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 14%, black 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 14%, black 100%);
     }
-    /* Brilho esverdeado suave atrás da equipe */
+    /* Brilho esverdeado suave atrás dos EPIs */
     .hero-img-layer::after {
       content: '';
       position: absolute; inset: 0; z-index: 0;
       background: radial-gradient(
-        ellipse at 55% 88%,
-        oklch(52% 0.25 148 / 32%) 0%,
-        oklch(40% 0.20 148 / 14%) 38%,
-        transparent 66%
+        ellipse at 52% 72%,
+        oklch(48% 0.24 148 / 28%) 0%,
+        oklch(36% 0.18 148 / 10%) 42%,
+        transparent 65%
       );
       pointer-events: none;
     }
     .hero-team-img {
       position: absolute;
-      bottom: 0; right: -3%;
-      height: 118%; width: auto; max-width: unset;
+      top: 50%; right: -2%;
+      transform: translateY(-50%);
+      width: 96%; height: auto; max-width: unset;
       display: block; z-index: 1;
       opacity: 0; animation: heroPngIn 1.1s var(--ease) 0.3s forwards;
-      mix-blend-mode: multiply;
-      filter: brightness(1.18) contrast(1.06) saturate(0.86);
-      -webkit-mask-image: linear-gradient(to bottom, black 68%, transparent 100%);
-      mask-image: linear-gradient(to bottom, black 68%, transparent 100%);
+      filter: brightness(0.95) contrast(1.08) saturate(1.06);
+      /* fade inferior suave */
+      -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
     }
 
     /* Eyebrow / Título / Desc / Stats / Badge */
@@ -284,34 +287,32 @@
     }
     .hero-location-badge svg { width: 13px; height: 13px; color: var(--green-400); flex-shrink: 0; }
 
-    /* Mobile: stack vertical, imagem abaixo com faces legíveis */
+    /* Mobile: stack vertical — imagem landscape abaixo do texto */
     @media (max-width: 899px) {
       .hero-equipe { height: auto; min-height: auto; flex-direction: column; }
       .hero-equipe::after {
         background: linear-gradient(to bottom,
-          oklch(19% 0.12 145 / 97%) 0%,
-          oklch(19% 0.12 145 / 82%) 52%,
-          oklch(19% 0.12 145 / 28%) 72%,
-          transparent 88%
+          oklch(14% 0.09 145 / 97%) 0%,
+          oklch(14% 0.09 145 / 84%) 52%,
+          oklch(14% 0.09 145 / 28%) 72%,
+          transparent 90%
         );
       }
       .hero-content-wrap { height: auto; width: 100%; padding-block: 4.5rem 1rem; }
       .hero-left-col { max-width: 100%; padding-block: 0; }
       .hero-img-layer {
         position: relative; width: 100%;
-        height: 60vw; min-height: 270px;
-      }
-      .hero-img-layer::after {
-        background: radial-gradient(
-          ellipse at 50% 100%,
-          oklch(50% 0.23 148 / 22%) 0%, transparent 55%
-        );
+        height: 56vw; min-height: 240px;
+        -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
       }
       .hero-team-img {
-        right: 50%; transform: translateX(50%);
-        height: 114%; bottom: -4%;
-        -webkit-mask-image: linear-gradient(to bottom, black 56%, transparent 100%);
-        mask-image: linear-gradient(to bottom, black 56%, transparent 100%);
+        top: 50%; right: 50%;
+        transform: translate(50%, -50%);
+        width: 100%; height: auto;
+        -webkit-mask-image: none;
+        mask-image: none;
+        filter: brightness(0.92) contrast(1.08) saturate(1.06);
       }
     }
     /* ─── SEÇÃO FOTO COMPLETA ────────────────────────────────────── */
@@ -782,8 +783,8 @@
       <!-- Imagem: absoluta na section, fora do wrap — sem caixa visível -->
       <div class="hero-img-layer" aria-hidden="true">
         <img
-          src="./assets/NOSSA EQUIPE.png"
-          alt="Equipe técnica PROTEÇÃO"
+          src="./assets/hero-nossa-equipe.png"
+          alt="EPIs e equipamentos de segurança PROTEÇÃO — capacete, protetores auditivos, óculos e luvas"
           class="hero-team-img"
           fetchpriority="high"
           decoding="async"
