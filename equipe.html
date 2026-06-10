@@ -162,14 +162,6 @@
       0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.92); }
       50%      { opacity: 0.7; transform: translate(-50%, -50%) scale(1.08); }
     }
-    @keyframes pinPulse {
-      0%, 100% { opacity: 1;   r: 3.5; }
-      50%      { opacity: 0.35; r: 5.5; }
-    }
-    @keyframes pinRing {
-      0%   { r: 5;  opacity: 0.7; }
-      100% { r: 16; opacity: 0;   }
-    }
 
     .hero-equipe {
       position: relative;
@@ -211,7 +203,7 @@
     .hero-img-layer {
       position: absolute;
       top: 0; right: 0; bottom: 0;
-      width: 58%;
+      width: 66%;
       z-index: 2;
       pointer-events: none;
     }
@@ -229,34 +221,6 @@
       pointer-events: none;
     }
 
-    /* Mapa wireframe Região Norte */
-    .hero-map-layer {
-      position: absolute; inset: 0; z-index: 1;
-      opacity: 0; animation: heroReveal 1.6s ease 1.4s forwards;
-      pointer-events: none;
-    }
-    .hero-map-svg { width: 100%; height: 100%; }
-    .map-state {
-      fill: none; stroke: oklch(62% 0.18 152);
-      stroke-width: 0.9; stroke-opacity: 0.2;
-    }
-    .map-state-focus {
-      fill: oklch(52% 0.22 148 / 4%);
-      stroke: oklch(68% 0.22 152);
-      stroke-width: 1.2; stroke-opacity: 0.38;
-    }
-    .map-grid-line {
-      stroke: oklch(62% 0.18 152); stroke-width: 0.4;
-      stroke-opacity: 0.08; stroke-dasharray: 4 7;
-    }
-    .map-pin-dot { fill: oklch(72% 0.22 152); }
-    .map-pin-dot.p1 { animation: pinPulse 2.8s ease-in-out infinite; }
-    .map-pin-dot.p2 { animation: pinPulse 2.8s ease-in-out 0.9s infinite; }
-    .map-pin-dot.p3 { animation: pinPulse 2.8s ease-in-out 1.8s infinite; }
-    .map-pin-ring { fill: none; stroke: oklch(72% 0.22 152); stroke-width: 1; }
-    .map-pin-ring.p1 { animation: pinRing 2.8s ease-out infinite; }
-    .map-pin-ring.p2 { animation: pinRing 2.8s ease-out 0.9s infinite; }
-    .map-pin-ring.p3 { animation: pinRing 2.8s ease-out 1.8s infinite; }
 
     /* Linhas técnicas de engenharia */
     .hero-tech-svg {
@@ -863,33 +827,6 @@
 
         <!-- Partículas discretas -->
         <canvas class="hero-particles"></canvas>
-
-        <!-- Mapa wireframe Região Norte/Centro-Oeste -->
-        <div class="hero-map-layer">
-          <svg class="hero-map-svg" viewBox="0 0 500 380" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0" y1="95"  x2="500" y2="95"  class="map-grid-line"/>
-            <line x1="0" y1="190" x2="500" y2="190" class="map-grid-line"/>
-            <line x1="0" y1="285" x2="500" y2="285" class="map-grid-line"/>
-            <line x1="100" y1="0" x2="100" y2="380" class="map-grid-line"/>
-            <line x1="200" y1="0" x2="200" y2="380" class="map-grid-line"/>
-            <line x1="300" y1="0" x2="300" y2="380" class="map-grid-line"/>
-            <line x1="400" y1="0" x2="400" y2="380" class="map-grid-line"/>
-            <path d="M92,8 L168,5 L182,38 L192,80 L158,92 L118,96 L86,76 L76,42 Z" class="map-state"/>
-            <path d="M318,6 L392,9 L412,46 L402,90 L362,96 L328,82 L313,52 Z" class="map-state"/>
-            <path d="M16,80 L92,76 L158,92 L192,80 L208,108 L228,142 L222,202 L208,242 L182,270 L138,280 L82,267 L30,232 L10,178 L6,122 Z" class="map-state"/>
-            <path d="M202,74 L318,62 L392,70 L428,102 L442,148 L436,212 L412,248 L368,260 L308,267 L252,252 L222,202 L228,142 L208,108 Z" class="map-state"/>
-            <path d="M82,264 L182,270 L208,282 L212,322 L198,358 L155,364 L97,354 L70,320 L76,287 Z" class="map-state-focus"/>
-            <path d="M6,250 L78,242 L82,264 L76,287 L70,320 L16,310 L3,274 Z" class="map-state"/>
-            <path d="M416,212 L462,207 L476,268 L462,322 L436,332 L412,307 L412,250 Z" class="map-state"/>
-            <path d="M135,360 L212,356 L292,350 L308,378 L208,380 L135,380 Z" class="map-state"/>
-            <circle cx="173" cy="332" r="3.5" class="map-pin-dot p1"/>
-            <circle cx="173" cy="332" r="5"   class="map-pin-ring p1"/>
-            <circle cx="108" cy="292" r="3.5" class="map-pin-dot p2"/>
-            <circle cx="108" cy="292" r="5"   class="map-pin-ring p2"/>
-            <circle cx="146" cy="302" r="3.5" class="map-pin-dot p3"/>
-            <circle cx="146" cy="302" r="5"   class="map-pin-ring p3"/>
-          </svg>
-        </div>
 
         <!-- Linhas técnicas de engenharia -->
         <svg class="hero-tech-svg" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
