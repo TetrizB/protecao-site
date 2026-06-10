@@ -197,36 +197,42 @@
     .hero-img-layer {
       position: absolute;
       top: 0; right: 0; bottom: 0;
-      width: 62%;
+      width: 60%;
       z-index: 2;
       pointer-events: none;
-      /* fade lateral esquerdo no container — sem mix-blend-mode */
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 14%, black 100%);
-      mask-image: linear-gradient(to right, transparent 0%, black 14%, black 100%);
+    }
+    /* Overlay escuro esq→dir: funde borda da imagem sem mask no container */
+    .hero-img-layer::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(to right,
+        oklch(14% 0.09 145) 0%,
+        transparent 26%
+      );
+      pointer-events: none;
     }
     /* Brilho esverdeado suave atrás dos EPIs */
     .hero-img-layer::after {
       content: '';
       position: absolute; inset: 0; z-index: 0;
       background: radial-gradient(
-        ellipse at 52% 72%,
-        oklch(48% 0.24 148 / 28%) 0%,
-        oklch(36% 0.18 148 / 10%) 42%,
-        transparent 65%
+        ellipse at 52% 68%,
+        oklch(48% 0.24 148 / 22%) 0%,
+        transparent 60%
       );
       pointer-events: none;
     }
     .hero-team-img {
       position: absolute;
-      top: 50%; right: -2%;
-      transform: translateY(-50%);
-      width: 96%; height: auto; max-width: unset;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center center;
       display: block; z-index: 1;
       opacity: 0; animation: heroPngIn 1.1s var(--ease) 0.3s forwards;
       filter: brightness(0.95) contrast(1.08) saturate(1.06);
-      /* fade inferior suave */
-      -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
-      mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
     }
 
     /* Eyebrow / Título / Desc / Stats / Badge */
@@ -768,7 +774,7 @@
       <!-- Imagem: absoluta na section, fora do wrap — sem caixa visível -->
       <div class="hero-img-layer" aria-hidden="true">
         <img
-          src="./assets/hero-nossa-equipe.png"
+          src=".\assets\hero-nossa-equipe.png"
           alt="EPIs e equipamentos de segurança PROTEÇÃO — capacete, protetores auditivos, óculos e luvas"
           class="hero-team-img"
           fetchpriority="high"
