@@ -136,7 +136,7 @@
     .btn-ghost:hover { background: oklch(100% 0 0 / 10%); border-color: oklch(100% 0 0 / 60%); }
     :focus-visible { outline: 3px solid var(--green-500); outline-offset: 3px; border-radius: 4px; }
 
-    /* ═══ HERO EQUIPE — composição corporativa full-bleed ════════════ */
+    /* ═══ HERO EQUIPE — hero corporativo premium ════════════════════ */
 
     @keyframes heroReveal {
       from { opacity: 0; transform: translateY(18px); }
@@ -147,97 +147,187 @@
       to   { opacity: 1; transform: translateX(0); }
     }
     @keyframes heroPngIn {
-      from { opacity: 0; transform: translateX(28px) scale(0.98); }
-      to   { opacity: 1; transform: translateX(0)    scale(1); }
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes floatEPI {
+      0%, 100% { transform: translateY(0px); }
+      50%      { transform: translateY(-10px); }
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.94); }
+      50%      { opacity: 1;   transform: translate(-50%, -50%) scale(1.06); }
+    }
+    @keyframes glowPulseOuter {
+      0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.92); }
+      50%      { opacity: 0.7; transform: translate(-50%, -50%) scale(1.08); }
+    }
+    @keyframes pinPulse {
+      0%, 100% { opacity: 1;   r: 3.5; }
+      50%      { opacity: 0.35; r: 5.5; }
+    }
+    @keyframes pinRing {
+      0%   { r: 5;  opacity: 0.7; }
+      100% { r: 16; opacity: 0;   }
     }
 
     .hero-equipe {
       position: relative;
-      background: oklch(14% 0.09 145);
+      background: oklch(13% 0.09 145);
       overflow: hidden;
-      height: clamp(520px, 64vh, 820px);
+      height: clamp(540px, 66vh, 840px);
       display: flex;
       align-items: center;
     }
-    /* Textura sutil */
     .hero-equipe::before {
       content: ''; position: absolute; inset: 0; z-index: 0;
       background: url('./assets/plano-de-fundo.png') center / cover no-repeat;
-      opacity: 0.06; pointer-events: none;
+      opacity: 0.05; pointer-events: none;
     }
-    /* Máscara escura sólida na área de texto + fade suave para a direita */
     .hero-equipe::after {
       content: ''; position: absolute; inset: 0; z-index: 3;
       background:
         linear-gradient(to right,
-          oklch(19% 0.12 145)        0%,   /* sólido — contraste perfeito */
-          oklch(19% 0.12 145)        44%,  /* cobre toda a coluna de texto */
-          oklch(19% 0.12 145 / 82%) 54%,  /* transição suave */
-          oklch(19% 0.12 145 / 32%) 66%,
-          transparent                78%
-        ),
-        radial-gradient(ellipse at 20% 58%, oklch(46% 0.22 148 / 12%) 0%, transparent 44%);
+          oklch(13% 0.09 145)        0%,
+          oklch(13% 0.09 145)        47%,
+          oklch(13% 0.09 145 / 80%) 57%,
+          oklch(13% 0.09 145 / 22%) 68%,
+          transparent                80%
+        );
       pointer-events: none;
     }
 
-    /* Texto — dentro do wrap, sobre todos os layers */
     .hero-content-wrap {
       position: relative; z-index: 4;
-      height: 100%;
-      display: flex;
-      align-items: center;
+      height: 100%; display: flex; align-items: center;
     }
     .hero-left-col {
       display: flex; flex-direction: column; justify-content: center;
-      max-width: clamp(320px, 44%, 540px);
-      padding-block: clamp(4rem, 8vw, 6rem);
+      max-width: clamp(380px, 48%, 600px);
+      padding-block: clamp(3.5rem, 6vw, 5rem);
     }
 
-    /* Camada da imagem — absoluta na section, FORA do wrap (sem caixa visível) */
+    /* ── Camada de imagem e efeitos ── */
     .hero-img-layer {
       position: absolute;
       top: 0; right: 0; bottom: 0;
-      width: 60%;
+      width: 58%;
       z-index: 2;
       pointer-events: none;
     }
-    /* Overlay escuro esq→dir: funde borda da imagem sem mask no container */
     .hero-img-layer::before {
       content: '';
-      position: absolute; inset: 0; z-index: 2;
-      background: linear-gradient(to right,
-        oklch(14% 0.09 145) 0%,
-        transparent 26%
-      );
+      position: absolute; inset: 0; z-index: 6;
+      background: linear-gradient(to right, oklch(13% 0.09 145) 0%, transparent 22%);
       pointer-events: none;
     }
-    /* Brilho esverdeado suave atrás dos EPIs */
     .hero-img-layer::after {
       content: '';
-      position: absolute; inset: 0; z-index: 0;
-      background: radial-gradient(
-        ellipse at 52% 68%,
-        oklch(48% 0.24 148 / 22%) 0%,
-        transparent 60%
-      );
+      position: absolute; left: 0; right: 0; bottom: 0;
+      height: 28%; z-index: 6;
+      background: linear-gradient(to bottom, transparent 0%, oklch(13% 0.09 145 / 88%) 100%);
       pointer-events: none;
     }
-    .hero-team-img {
-      position: absolute;
-      inset: 0;
+
+    /* Mapa wireframe Região Norte */
+    .hero-map-layer {
+      position: absolute; inset: 0; z-index: 1;
+      opacity: 0; animation: heroReveal 1.6s ease 1.4s forwards;
+      pointer-events: none;
+    }
+    .hero-map-svg { width: 100%; height: 100%; }
+    .map-state {
+      fill: none; stroke: oklch(62% 0.18 152);
+      stroke-width: 0.9; stroke-opacity: 0.2;
+    }
+    .map-state-focus {
+      fill: oklch(52% 0.22 148 / 4%);
+      stroke: oklch(68% 0.22 152);
+      stroke-width: 1.2; stroke-opacity: 0.38;
+    }
+    .map-grid-line {
+      stroke: oklch(62% 0.18 152); stroke-width: 0.4;
+      stroke-opacity: 0.08; stroke-dasharray: 4 7;
+    }
+    .map-pin-dot { fill: oklch(72% 0.22 152); }
+    .map-pin-dot.p1 { animation: pinPulse 2.8s ease-in-out infinite; }
+    .map-pin-dot.p2 { animation: pinPulse 2.8s ease-in-out 0.9s infinite; }
+    .map-pin-dot.p3 { animation: pinPulse 2.8s ease-in-out 1.8s infinite; }
+    .map-pin-ring { fill: none; stroke: oklch(72% 0.22 152); stroke-width: 1; }
+    .map-pin-ring.p1 { animation: pinRing 2.8s ease-out infinite; }
+    .map-pin-ring.p2 { animation: pinRing 2.8s ease-out 0.9s infinite; }
+    .map-pin-ring.p3 { animation: pinRing 2.8s ease-out 1.8s infinite; }
+
+    /* Linhas técnicas de engenharia */
+    .hero-tech-svg {
+      position: absolute; inset: 0; z-index: 1;
       width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      display: block; z-index: 1;
-      opacity: 0; animation: heroPngIn 1.1s var(--ease) 0.3s forwards;
-      filter: brightness(0.95) contrast(1.08) saturate(1.06);
-      -webkit-mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
-      mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
+      opacity: 0; animation: heroReveal 1.4s ease 1s forwards;
+      pointer-events: none;
+    }
+    .tech-line { stroke: oklch(60% 0.16 152); stroke-width: 0.7; stroke-opacity: 0.12; fill: none; }
+    .tech-dash { stroke: oklch(60% 0.16 152); stroke-width: 0.5; stroke-opacity: 0.07;
+                 stroke-dasharray: 4 8; fill: none; }
+    .tech-cross { stroke: oklch(65% 0.20 152); stroke-width: 0.8; stroke-opacity: 0.18; }
+    .tech-lbl { fill: oklch(65% 0.18 152); fill-opacity: 0.18;
+                font-size: 5px; font-family: 'Inter', monospace; letter-spacing: 0.08em; }
+
+    /* Glow atrás dos EPIs */
+    .hero-glow-ring {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 82%; aspect-ratio: 1; border-radius: 50%;
+      background: radial-gradient(circle,
+        oklch(52% 0.26 148 / 40%) 0%,
+        oklch(42% 0.22 148 / 16%) 42%,
+        transparent 70%
+      );
+      z-index: 2;
+      animation: glowPulse 4.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .hero-glow-outer {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%; aspect-ratio: 1; border-radius: 50%;
+      border: 1px solid oklch(58% 0.22 148 / 14%);
+      z-index: 2;
+      animation: glowPulseOuter 6s ease-in-out 1.2s infinite;
+      pointer-events: none;
     }
 
-    /* Eyebrow / Título / Desc / Stats / Badge */
+    /* Float (CSS) → Parallax (JS) → Imagem */
+    .hero-epi-wrapper {
+      position: absolute; inset: 0; z-index: 3;
+      animation: floatEPI 7s ease-in-out 1.5s infinite;
+    }
+    .hero-epi-parallax {
+      position: relative; width: 100%; height: 100%;
+      will-change: transform;
+    }
+    .hero-team-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+      opacity: 0; animation: heroPngIn 1.2s var(--ease) 0.5s forwards;
+      filter:
+        brightness(0.97) contrast(1.06) saturate(1.08)
+        drop-shadow(0 10px 44px oklch(50% 0.26 148 / 24%))
+        drop-shadow(0 3px 14px oklch(0% 0 0 / 32%));
+    }
+
+    /* Partículas canvas */
+    .hero-particles {
+      position: absolute; inset: 0; z-index: 1;
+      width: 100%; height: 100%;
+      pointer-events: none; display: block;
+    }
+
+    /* ── Texto ── */
     .hero-eyebrow-row {
-      display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.375rem;
+      display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;
       opacity: 0; animation: heroRevealLeft 0.65s var(--ease) 0.05s forwards;
     }
     .hero-eyebrow-rule { display: block; width: 2rem; height: 2px; background: var(--green-400); flex-shrink: 0; }
@@ -247,60 +337,57 @@
     }
     .hero-main-title {
       font-family: var(--fh); font-weight: 900;
-      font-size: clamp(4.5rem, 10vw, 8.5rem);
-      line-height: 0.86; text-transform: uppercase; letter-spacing: -0.03em;
-      color: var(--white); margin-bottom: 1.5rem;
-      text-shadow: 0 2px 24px oklch(0% 0 0 / 45%);
+      font-size: clamp(4.75rem, 10.5vw, 9.5rem);
+      line-height: 0.87; text-transform: uppercase; letter-spacing: -0.03em;
+      color: var(--white); margin-bottom: 1.375rem;
+      text-shadow: 0 2px 32px oklch(0% 0 0 / 50%);
       opacity: 0; animation: heroReveal 0.82s var(--ease) 0.18s forwards;
     }
     .hero-main-desc {
-      font-size: clamp(0.875rem, 1.1vw, 0.9375rem);
-      line-height: 1.78; color: oklch(92% 0 0 / 88%);
-      max-width: 380px; margin-bottom: 2.5rem;
-      text-shadow: 0 1px 10px oklch(0% 0 0 / 35%);
+      font-size: clamp(0.9375rem, 1.3vw, 1.0625rem);
+      line-height: 1.72; color: oklch(90% 0 0 / 82%);
+      max-width: 460px; margin-bottom: 2.25rem;
+      text-shadow: 0 1px 12px oklch(0% 0 0 / 40%);
       opacity: 0; animation: heroReveal 0.8s var(--ease) 0.32s forwards;
     }
     .hero-main-desc strong { color: var(--white); font-weight: 600; }
     .hero-stats-row {
-      display: flex; gap: 1.75rem; flex-wrap: wrap;
-      padding-bottom: 2rem; margin-bottom: 1.75rem;
+      display: flex; gap: 2rem; flex-wrap: wrap;
+      padding-bottom: 1.875rem; margin-bottom: 1.875rem;
       border-bottom: 1px solid oklch(100% 0 0 / 10%);
       opacity: 0; animation: heroReveal 0.8s var(--ease) 0.44s forwards;
     }
-    .hero-stat-item { display: flex; flex-direction: column; gap: 0.22rem; }
+    .hero-stat-item { display: flex; flex-direction: column; gap: 0.2rem; }
     .hero-stat-icon-wrap {
-      width: 30px; height: 30px; border-radius: 7px;
+      width: 32px; height: 32px; border-radius: 8px;
       background: oklch(100% 0 0 / 10%);
-      display: flex; align-items: center; justify-content: center; margin-bottom: 0.35rem;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 0.4rem;
     }
-    .hero-stat-icon-wrap svg { width: 14px; height: 14px; color: var(--green-300); }
+    .hero-stat-icon-wrap svg { width: 15px; height: 15px; color: var(--green-300); }
     .hero-stat-num-txt {
       font-family: var(--fh); font-weight: 900;
-      font-size: clamp(1.25rem, 2.2vw, 1.625rem); line-height: 1;
+      font-size: clamp(1.375rem, 2.4vw, 1.75rem); line-height: 1;
       color: var(--white); letter-spacing: -0.02em;
     }
     .hero-stat-lbl-txt {
-      font-size: 0.63rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.1em; color: oklch(62% 0 0);
+      font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: oklch(58% 0 0);
     }
     .hero-location-badge {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.5rem 1rem; border-radius: 100px;
-      border: 1px solid oklch(100% 0 0 / 12%); background: oklch(100% 0 0 / 7%);
-      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-      font-size: 0.78rem; font-weight: 500; color: oklch(82% 0 0);
-      opacity: 0; animation: heroReveal 0.8s var(--ease) 0.54s forwards;
+      padding: 0.55rem 1.125rem; border-radius: 100px;
+      border: 1px solid oklch(100% 0 0 / 14%); background: oklch(100% 0 0 / 8%);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      font-size: 0.8rem; font-weight: 500; color: oklch(84% 0 0);
+      opacity: 0; animation: heroReveal 0.8s var(--ease) 0.56s forwards;
     }
     .hero-location-badge svg { width: 13px; height: 13px; color: var(--green-400); flex-shrink: 0; }
 
-    /* Mobile: apenas texto, sem imagem */
+    /* Mobile: apenas texto */
     @media (max-width: 899px) {
       .hero-equipe { height: auto; min-height: auto; }
       .hero-equipe::after {
-        background: linear-gradient(
-          oklch(14% 0.09 145 / 92%) 0%,
-          transparent 100%
-        );
+        background: linear-gradient(oklch(13% 0.09 145 / 94%) 0%, transparent 100%);
       }
       .hero-content-wrap { height: auto; width: 100%; padding-block: 5rem 4rem; }
       .hero-left-col { max-width: 100%; padding-block: 0; }
@@ -771,15 +858,78 @@
         </div>
       </div>
 
-      <!-- Imagem: absoluta na section, fora do wrap — sem caixa visível -->
+      <!-- Efeitos + imagem: absolutos na section, fora do wrap -->
       <div class="hero-img-layer" aria-hidden="true">
-        <img
-          src=".\assets\hero-nossa-equipe.png"
-          alt="EPIs e equipamentos de segurança PROTEÇÃO — capacete, protetores auditivos, óculos e luvas"
-          class="hero-team-img"
-          fetchpriority="high"
-          decoding="async"
-        >
+
+        <!-- Partículas discretas -->
+        <canvas class="hero-particles"></canvas>
+
+        <!-- Mapa wireframe Região Norte/Centro-Oeste -->
+        <div class="hero-map-layer">
+          <svg class="hero-map-svg" viewBox="0 0 500 380" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="95"  x2="500" y2="95"  class="map-grid-line"/>
+            <line x1="0" y1="190" x2="500" y2="190" class="map-grid-line"/>
+            <line x1="0" y1="285" x2="500" y2="285" class="map-grid-line"/>
+            <line x1="100" y1="0" x2="100" y2="380" class="map-grid-line"/>
+            <line x1="200" y1="0" x2="200" y2="380" class="map-grid-line"/>
+            <line x1="300" y1="0" x2="300" y2="380" class="map-grid-line"/>
+            <line x1="400" y1="0" x2="400" y2="380" class="map-grid-line"/>
+            <path d="M92,8 L168,5 L182,38 L192,80 L158,92 L118,96 L86,76 L76,42 Z" class="map-state"/>
+            <path d="M318,6 L392,9 L412,46 L402,90 L362,96 L328,82 L313,52 Z" class="map-state"/>
+            <path d="M16,80 L92,76 L158,92 L192,80 L208,108 L228,142 L222,202 L208,242 L182,270 L138,280 L82,267 L30,232 L10,178 L6,122 Z" class="map-state"/>
+            <path d="M202,74 L318,62 L392,70 L428,102 L442,148 L436,212 L412,248 L368,260 L308,267 L252,252 L222,202 L228,142 L208,108 Z" class="map-state"/>
+            <path d="M82,264 L182,270 L208,282 L212,322 L198,358 L155,364 L97,354 L70,320 L76,287 Z" class="map-state-focus"/>
+            <path d="M6,250 L78,242 L82,264 L76,287 L70,320 L16,310 L3,274 Z" class="map-state"/>
+            <path d="M416,212 L462,207 L476,268 L462,322 L436,332 L412,307 L412,250 Z" class="map-state"/>
+            <path d="M135,360 L212,356 L292,350 L308,378 L208,380 L135,380 Z" class="map-state"/>
+            <circle cx="173" cy="332" r="3.5" class="map-pin-dot p1"/>
+            <circle cx="173" cy="332" r="5"   class="map-pin-ring p1"/>
+            <circle cx="108" cy="292" r="3.5" class="map-pin-dot p2"/>
+            <circle cx="108" cy="292" r="5"   class="map-pin-ring p2"/>
+            <circle cx="146" cy="302" r="3.5" class="map-pin-dot p3"/>
+            <circle cx="146" cy="302" r="5"   class="map-pin-ring p3"/>
+          </svg>
+        </div>
+
+        <!-- Linhas técnicas de engenharia -->
+        <svg class="hero-tech-svg" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22,22 L22,48 M22,22 L48,22" class="tech-line"/>
+          <path d="M578,22 L552,22 M578,22 L578,48" class="tech-line"/>
+          <path d="M22,378 L22,352 M22,378 L48,378" class="tech-line"/>
+          <path d="M578,378 L552,378 M578,378 L578,352" class="tech-line"/>
+          <line x1="64"  y1="0"   x2="0"   y2="64"  class="tech-dash"/>
+          <line x1="128" y1="0"   x2="0"   y2="128" class="tech-dash"/>
+          <line x1="600" y1="64"  x2="536" y2="0"   class="tech-dash"/>
+          <line x1="600" y1="128" x2="472" y2="0"   class="tech-dash"/>
+          <circle cx="300" cy="200" r="132" class="tech-dash"/>
+          <circle cx="300" cy="200" r="88"  class="tech-dash"/>
+          <line x1="284" y1="200" x2="316" y2="200" class="tech-cross"/>
+          <line x1="300" y1="184" x2="300" y2="216" class="tech-cross"/>
+          <line x1="42"  y1="200" x2="558" y2="200" class="tech-dash"/>
+          <line x1="300" y1="42"  x2="300" y2="358" class="tech-dash"/>
+          <text x="24"  y="15"  class="tech-lbl">RO 11.2026</text>
+          <text x="24"  y="394" class="tech-lbl">PROTECAO ENG SST</text>
+          <text x="498" y="15"  class="tech-lbl">SST MA EPI</text>
+          <text x="498" y="394" class="tech-lbl">VILHENA RO</text>
+        </svg>
+
+        <!-- Glow verde animado -->
+        <div class="hero-glow-ring"></div>
+        <div class="hero-glow-outer"></div>
+
+        <!-- Float CSS > Parallax JS > Imagem intacta (sem recorte) -->
+        <div class="hero-epi-wrapper">
+          <div class="hero-epi-parallax">
+            <img
+              src="./assets/hero-nossa-equipe.png"
+              alt="EPIs e equipamentos de segurança PROTEÇÃO"
+              class="hero-team-img"
+              fetchpriority="high"
+              decoding="async"
+            >
+          </div>
+        </div>
+
       </div>
 
     </section>
@@ -1146,6 +1296,66 @@
 
     const waFloat = document.getElementById('waFloat');
     if (waFloat) setTimeout(() => waFloat.classList.add('show'), 1500);
+
+    // Parallax hero EPI
+    (function () {
+      var hero = document.querySelector('.hero-equipe');
+      var parallax = document.querySelector('.hero-epi-parallax');
+      if (!hero || !parallax) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var tx = 0, ty = 0, cx = 0, cy = 0;
+      hero.addEventListener('mousemove', function (e) {
+        var r = hero.getBoundingClientRect();
+        tx = ((e.clientX - r.left) / r.width - 0.5) * 16;
+        ty = ((e.clientY - r.top) / r.height - 0.5) * 10;
+      });
+      hero.addEventListener('mouseleave', function () { tx = 0; ty = 0; });
+      function animParallax() {
+        cx += (tx - cx) * 0.055;
+        cy += (ty - cy) * 0.055;
+        parallax.style.transform = 'translate(' + cx.toFixed(2) + 'px,' + cy.toFixed(2) + 'px)';
+        requestAnimationFrame(animParallax);
+      }
+      animParallax();
+    })();
+
+    // Partículas hero
+    (function () {
+      var canvas = document.querySelector('.hero-particles');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      function resize() {
+        canvas.width = canvas.parentElement.offsetWidth;
+        canvas.height = canvas.parentElement.offsetHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+      var pts = [];
+      for (var i = 0; i < 28; i++) {
+        pts.push({
+          x: Math.random(), y: Math.random(),
+          s: Math.random() * 1.2 + 0.3,
+          vx: (Math.random() - 0.5) * 0.0002,
+          vy: -(Math.random() * 0.0003 + 0.0001),
+          o: Math.random() * 0.14 + 0.04
+        });
+      }
+      function tickParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        var w = canvas.width, h = canvas.height;
+        pts.forEach(function (p) {
+          p.x += p.vx; p.y += p.vy;
+          if (p.y < -0.02) p.y = 1.02;
+          if (p.x < 0 || p.x > 1) p.vx *= -1;
+          ctx.beginPath();
+          ctx.arc(p.x * w, p.y * h, p.s, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(120,220,155,' + p.o + ')';
+          ctx.fill();
+        });
+        requestAnimationFrame(tickParticles);
+      }
+      tickParticles();
+    })();
 
   </script>
 </body>
