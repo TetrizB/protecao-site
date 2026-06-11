@@ -518,6 +518,79 @@
       letter-spacing: 0.06em;
     }
 
+    /* ─── EQUIPE EM CAMPO / POLAROIDS ───────────────────────────── */
+    .campo-section { background: var(--white); border-top: 1px solid var(--gray-150); }
+    .campo-wrap {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .campo-wrap { grid-template-columns: 1fr 1fr; }
+    }
+    .campo-text h2 {
+      font-family: var(--fh); font-weight: 900;
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      line-height: 0.95; text-transform: uppercase;
+      color: var(--gray-950); margin-block: 1rem 1.25rem;
+    }
+    .campo-text h2 em { font-style: normal; color: var(--green-600); }
+    .campo-text p {
+      font-size: 0.9375rem; line-height: 1.8; color: var(--gray-600);
+      margin-bottom: 1rem;
+    }
+    .campo-text p:last-child { margin-bottom: 0; }
+
+    /* Cluster de polaroids */
+    .polaroid-cluster {
+      position: relative;
+      height: 440px;
+      max-width: 360px;
+      margin-inline: auto;
+    }
+    .polaroid {
+      position: absolute;
+      background: #fff;
+      padding: 0.75rem;
+      padding-bottom: 3rem;
+      border-radius: 2px;
+      box-shadow:
+        0 1px 3px oklch(0% 0 0 / 8%),
+        0 6px 20px oklch(0% 0 0 / 12%),
+        0 24px 56px oklch(0% 0 0 / 8%);
+      transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), z-index 0s;
+      will-change: transform;
+    }
+    .polaroid img {
+      width: 206px; height: 154px;
+      object-fit: cover; display: block;
+      border-radius: 1px;
+    }
+    .polaroid-label {
+      position: absolute; bottom: 0.85rem; left: 0; right: 0;
+      text-align: center;
+      font-family: var(--fb); font-size: 0.6rem; font-weight: 700;
+      color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.12em;
+    }
+    .polaroid-1 { top: 20px;  left: 8px;   transform: rotate(-6deg);   z-index: 1; }
+    .polaroid-2 { top: 80px;  left: 110px; transform: rotate(4.5deg);  z-index: 2; }
+    .polaroid-3 { top: 170px; left: 38px;  transform: rotate(-2.5deg); z-index: 3; }
+    .polaroid:hover {
+      transform: rotate(0deg) scale(1.07) translateY(-14px) !important;
+      box-shadow:
+        0 2px 6px oklch(0% 0 0 / 10%),
+        0 18px 54px oklch(0% 0 0 / 22%);
+      z-index: 10;
+    }
+    @media (max-width: 899px) {
+      .polaroid-cluster { height: 350px; max-width: 300px; }
+      .polaroid img { width: 164px; height: 124px; }
+      .polaroid-1 { top: 16px;  left: 6px;  }
+      .polaroid-2 { top: 60px;  left: 82px; }
+      .polaroid-3 { top: 130px; left: 28px; }
+    }
+
     /* ─── INTRO ──────────────────────────────────────────────────── */
     .intro-section .wrap {
       display: grid;
@@ -1088,6 +1161,41 @@
             <span class="team-photo-meta">Vilhena – RO &nbsp;·&nbsp; Desde 2011</span>
           </figcaption>
         </figure>
+
+      </div>
+    </section>
+
+    <!-- ─── EQUIPE EM CAMPO ─── -->
+    <section class="section campo-section" aria-labelledby="campo-heading">
+      <div class="wrap campo-wrap">
+
+        <div class="campo-text" data-reveal>
+          <p class="eyebrow">Equipe em ação</p>
+          <h2 id="campo-heading">Na prática,<br><em>toda a diferença.</em></h2>
+          <p>Nossa equipe vai além da documentação: conduz treinamentos de combate a incêndio, trabalho em altura, primeiros socorros e CIPA diretamente nas empresas clientes em toda a região.</p>
+          <p>Cada atividade é ministrada por profissional habilitado, com registro fotográfico e certificação válida para o eSocial — garantindo rastreabilidade e conformidade total.</p>
+        </div>
+
+        <div class="polaroid-cluster" data-reveal data-delay="200" aria-hidden="true">
+          <div class="polaroid polaroid-1">
+            <img src="./assets/FOTOS PARA O SITE/bombeiro (5).jpg"
+                 alt="Treinamento de combate a incêndio — PROTEÇÃO"
+                 loading="lazy" decoding="async">
+            <span class="polaroid-label">Combate a incêndio</span>
+          </div>
+          <div class="polaroid polaroid-2">
+            <img src="./assets/FOTOS PARA O SITE/IMG_20250402_091523599_HDR.jpg"
+                 alt="Atendimento técnico em campo — PROTEÇÃO"
+                 loading="lazy" decoding="async">
+            <span class="polaroid-label">Atendimento em campo</span>
+          </div>
+          <div class="polaroid polaroid-3">
+            <img src="./assets/FOTOS PARA O SITE/IMG_20260320_145528.jpg"
+                 alt="Equipe técnica PROTEÇÃO em atividade"
+                 loading="lazy" decoding="async">
+            <span class="polaroid-label">Equipe técnica</span>
+          </div>
+        </div>
 
       </div>
     </section>
