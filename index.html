@@ -600,6 +600,48 @@
       font-weight: 700;
     }
 
+    /* ─── GALERIA CAMPO (prova social) ─────────────────────────── */
+    .campo-strip {
+      background: var(--gray-50);
+      border-top: 1px solid var(--gray-150);
+      padding-block: clamp(2.5rem, 5vw, 4rem);
+    }
+    .campo-strip-label {
+      text-align: center;
+      margin-bottom: 1.75rem;
+    }
+    .campo-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .campo-strip-photo {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px oklch(0% 0 0 / 8%), 0 8px 32px oklch(0% 0 0 / 6%);
+      transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    }
+    .campo-strip-photo:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 20px oklch(0% 0 0 / 12%), 0 16px 48px oklch(0% 0 0 / 10%);
+    }
+    .campo-strip-photo img {
+      width: 100%; height: 180px;
+      max-width: none; object-fit: cover; display: block;
+    }
+    .campo-strip-photo span {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 0.6rem 0.875rem;
+      background: linear-gradient(to top, oklch(10% 0.05 145 / 80%) 0%, transparent 100%);
+      font-size: 0.68rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; color: oklch(90% 0 0);
+    }
+    @media (max-width: 639px) {
+      .campo-strip-grid { grid-template-columns: 1fr 1fr; }
+      .campo-strip-grid .campo-strip-photo:last-child { display: none; }
+    }
+
     /* ─── CTA BANNER ────────────────────────────────────────────── */
     .cta-banner {
       background: var(--green-700);
@@ -1039,7 +1081,36 @@
       </div>
     </section>
 
-    <!-- ─── 6. CTA BANNER ─── -->
+    <!-- ─── 6. CAMPO STRIP — prova social ─── -->
+    <section class="campo-strip" aria-label="Equipe PROTEÇÃO em treinamentos">
+      <div class="wrap">
+        <div class="campo-strip-label" data-reveal>
+          <p class="eyebrow">Equipe em campo</p>
+        </div>
+        <div class="campo-strip-grid" data-reveal data-delay="100" aria-hidden="true">
+          <div class="campo-strip-photo">
+            <img src="./assets/campo-incendio.jpg"
+                 alt="Treinamento de primeiros socorros"
+                 loading="lazy" decoding="async">
+            <span>Primeiros socorros</span>
+          </div>
+          <div class="campo-strip-photo">
+            <img src="./assets/campo-grupo.jpg"
+                 alt="Treinamento de combate a incêndio em grupo"
+                 loading="lazy" decoding="async">
+            <span>Combate a incêndio</span>
+          </div>
+          <div class="campo-strip-photo">
+            <img src="./assets/campo-atividade.jpg"
+                 alt="Atendimento técnico em campo"
+                 loading="lazy" decoding="async">
+            <span>Atendimento em campo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 7. CTA BANNER ─── -->
     <section class="cta-banner" aria-labelledby="cta-heading">
       <div class="wrap">
         <div data-reveal>

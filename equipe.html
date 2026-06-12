@@ -545,8 +545,8 @@
     /* Cluster de polaroids */
     .polaroid-cluster {
       position: relative;
-      height: 440px;
-      max-width: 360px;
+      height: 580px;
+      max-width: 400px;
       margin-inline: auto;
     }
     .polaroid {
@@ -575,9 +575,11 @@
       font-family: var(--fb); font-size: 0.6rem; font-weight: 700;
       color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.12em;
     }
-    .polaroid-1 { top: 20px;  left: 8px;   transform: rotate(-6deg);   z-index: 1; }
-    .polaroid-2 { top: 80px;  left: 110px; transform: rotate(4.5deg);  z-index: 2; }
-    .polaroid-3 { top: 170px; left: 38px;  transform: rotate(-2.5deg); z-index: 3; }
+    .polaroid-1 { top: 10px;  left: 0px;   transform: rotate(-7deg);   z-index: 1; }
+    .polaroid-2 { top: 60px;  left: 130px; transform: rotate(5deg);    z-index: 2; }
+    .polaroid-3 { top: 165px; left: 18px;  transform: rotate(-3deg);   z-index: 3; }
+    .polaroid-4 { top: 250px; left: 138px; transform: rotate(6.5deg);  z-index: 4; }
+    .polaroid-5 { top: 355px; left: 40px;  transform: rotate(-4.5deg); z-index: 5; }
     .polaroid:hover {
       transform: rotate(0deg) scale(1.07) translateY(-14px) !important;
       box-shadow:
@@ -586,11 +588,14 @@
       z-index: 10;
     }
     @media (max-width: 899px) {
-      .polaroid-cluster { height: 350px; max-width: 300px; }
+      .polaroid-cluster { height: 460px; max-width: 310px; }
+      .polaroid { width: 188px; }
       .polaroid img { width: 164px; height: 124px; }
-      .polaroid-1 { top: 16px;  left: 6px;  }
-      .polaroid-2 { top: 60px;  left: 82px; }
-      .polaroid-3 { top: 130px; left: 28px; }
+      .polaroid-1 { top: 8px;   left: 0px;   }
+      .polaroid-2 { top: 48px;  left: 96px;  }
+      .polaroid-3 { top: 134px; left: 12px;  }
+      .polaroid-4 { top: 200px; left: 104px; }
+      .polaroid-5 { top: 284px; left: 30px;  }
     }
 
     /* ─── INTRO ──────────────────────────────────────────────────── */
@@ -1196,6 +1201,18 @@
                  alt="Equipe técnica PROTEÇÃO em atividade"
                  loading="lazy" decoding="async">
             <span class="polaroid-label">Equipe técnica</span>
+          </div>
+          <div class="polaroid polaroid-4">
+            <img src="./assets/campo-grupo.jpg"
+                 alt="Treinamento de combate a incêndio em grupo — PROTEÇÃO"
+                 loading="lazy" decoding="async">
+            <span class="polaroid-label">Treinamento em grupo</span>
+          </div>
+          <div class="polaroid polaroid-5">
+            <img src="./assets/campo-rcp.jpg"
+                 alt="Treinamento de RCP e primeiros socorros — PROTEÇÃO"
+                 loading="lazy" decoding="async">
+            <span class="polaroid-label">Primeiros socorros</span>
           </div>
         </div>
 

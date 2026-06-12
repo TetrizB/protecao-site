@@ -272,6 +272,35 @@
     .modalities { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
     .mod-tag { padding: 0.2rem 0.75rem; border-radius: 100px; font-size: 0.72rem; font-weight: 600; background: var(--green-100); color: var(--green-700); }
 
+    /* Evidência fotográfica treinamentos */
+    .trein-evidence {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .trein-photo {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px oklch(40% 0.12 148 / 12%), 0 1px 4px oklch(0% 0 0 / 8%);
+    }
+    .trein-photo img {
+      width: 100%; height: 200px;
+      max-width: none; object-fit: cover; display: block;
+    }
+    .trein-photo-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 0.75rem 1rem;
+      background: linear-gradient(to top, oklch(10% 0.05 145 / 85%) 0%, transparent 100%);
+      font-family: var(--fb); font-size: 0.7rem; font-weight: 600;
+      color: oklch(90% 0 0); text-transform: uppercase; letter-spacing: 0.1em;
+    }
+    @media (max-width: 639px) {
+      .trein-evidence { grid-template-columns: 1fr; }
+      .trein-photo img { height: 180px; }
+    }
+
     /* ═══ ENGENHARIA SST E CIVIL ════════════════════════════ */
     .eng-section { background: var(--gray-950); color: var(--white); }
     .eng-section::before {
@@ -698,6 +727,23 @@
           </div>
         </div>
       </div>
+
+      <!-- Fotos de treinamentos em campo -->
+      <div class="trein-evidence" data-reveal>
+        <div class="trein-photo">
+          <img src="./assets/campo-grupo.jpg"
+               alt="Treinamento de combate a incêndio — turma presencial PROTEÇÃO"
+               loading="lazy" decoding="async">
+          <span class="trein-photo-caption">Combate a incêndio</span>
+        </div>
+        <div class="trein-photo">
+          <img src="./assets/campo-rcp.jpg"
+               alt="Treinamento de primeiros socorros e RCP — PROTEÇÃO"
+               loading="lazy" decoding="async">
+          <span class="trein-photo-caption">Primeiros socorros</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -848,7 +894,7 @@
             </div>
           </div>
           <img
-            src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80"
+            src="https://ccarbon.usp.br/wp-content/uploads/sites/1496/2025/09/Thumb-CCarbon-2025-Article-8-1024x576.jpg"
             alt="Floresta amazônica — área de atuação ambiental da PROTEÇÃO"
             class="ma-img"
             style="margin-top: 1.5rem;"
