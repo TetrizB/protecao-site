@@ -616,26 +616,27 @@
       z-index: 10;
     }
 
-    /* Mobile: exibe apenas 3 polaroids centralizados */
+    /* Mobile: 3 polaroids centralizados em leque */
     @media (max-width: 899px) {
-      .campo-wrap { gap: 2.5rem; }
+      .campo-section { overflow-x: hidden; } /* evita scroll horizontal na página */
+      .campo-wrap { gap: 2rem; }
       .polaroid-cluster {
-        height: 360px;
-        max-width: 260px;   /* ← largura do container mobile */
+        height: 380px;
+        max-width: 300px;   /* ← largura do container mobile */
         margin-inline: auto;
-        overflow: hidden;   /* recorta rotações que vazem */
+        overflow: visible;  /* não cortar — overflow-x do pai já protege */
       }
       .polaroid {
-        width: 210px;       /* ← largura do card mobile */
+        width: 200px;       /* ← largura do card mobile */
       }
       .polaroid img {
-        width: 186px;       /* largura do card - 24px */
-        height: 140px;      /* largura da foto × 0.752 */
+        width: 176px;       /* card width - 24px */
+        height: 132px;
       }
-      /* 3 cards visíveis no mobile — angulação reduzida para não vazar */
-      .polaroid-1 { top: 12px;  left: 20px; transform: rotate(-4deg); z-index: 1; }
-      .polaroid-2 { top: 72px;  left: 30px; transform: rotate(3deg);  z-index: 2; }
-      .polaroid-3 { top: 158px; left: 18px; transform: rotate(-2deg); z-index: 3; }
+      /* 3 cards em leque centrado — left: 50px centra um card de 200px em 300px */
+      .polaroid-1 { top: 8px;   left: 50px; transform: rotate(-5deg); z-index: 1; }
+      .polaroid-2 { top: 65px;  left: 50px; transform: rotate(4deg);  z-index: 2; }
+      .polaroid-3 { top: 152px; left: 50px; transform: rotate(-3deg); z-index: 3; }
       /* Ocultar 4º e 5º no mobile */
       .polaroid-4,
       .polaroid-5 { display: none; }
