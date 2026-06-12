@@ -542,16 +542,43 @@
     }
     .campo-text p:last-child { margin-bottom: 0; }
 
-    /* Cluster de polaroids */
+    /* ══ POLAROID CLUSTER ════════════════════════════════════════════
+     *
+     * TAMANHO DOS POLAROIDS (desktop)
+     *   Largura do card:  .polaroid { width: 232px }    ← ajuste aqui
+     *   Foto interna:     .polaroid img { width: 206px; height: 154px }
+     *   Regra de proporção: img width = card width - 26px
+     *                       img height ≈ img width × 0.748
+     *   Se aumentar o card, aumente também cluster height para não cortar.
+     *
+     * POSICIONAMENTO DOS CARDS (desktop — 5 cards)
+     *   .polaroid-1 { top: Xpx; left: Ypx; transform: rotate(Zdeg); }
+     *   top  = distância do topo do cluster
+     *   left = distância da borda esquerda do cluster
+     *   rotate = ângulo (negativo = anti-horário)
+     *   Regra: left do último card + 232px ≤ max-width do cluster (400px)
+     *
+     * TROCAR IMAGENS
+     *   Coloque o arquivo em assets/ e mude o src no HTML abaixo.
+     *   Ex.: src="./assets/minha-foto.jpg"
+     *   Resolução recomendada: 412 × 308 px, JPEG qualidade 80-85.
+     *
+     * ADICIONAR POLAROID
+     *   1. Crie a classe: .polaroid-6 { top: Xpx; left: Ypx; transform: rotate(Zdeg); z-index: 6; }
+     *   2. Adicione o HTML no cluster (copie um bloco .polaroid existente).
+     *   3. Aumente cluster height conforme necessário.
+     * ════════════════════════════════════════════════════════════════ */
+
     .polaroid-cluster {
       position: relative;
-      height: 580px;
+      height: 580px;        /* ← aumente se adicionar mais polaroids */
       max-width: 400px;
       margin-inline: auto;
+      overflow: visible;
     }
     .polaroid {
       position: absolute;
-      width: 232px;
+      width: 232px;         /* ← largura do card */
       background: #fff;
       padding: 0.75rem;
       padding-bottom: 3rem;
@@ -564,7 +591,7 @@
       will-change: transform;
     }
     .polaroid img {
-      width: 206px; height: 154px;
+      width: 206px; height: 154px;   /* ← tamanho da foto */
       max-width: none;
       object-fit: cover; display: block;
       border-radius: 1px;
@@ -575,6 +602,7 @@
       font-family: var(--fb); font-size: 0.6rem; font-weight: 700;
       color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.12em;
     }
+    /* Posições desktop — 5 cards */
     .polaroid-1 { top: 10px;  left: 0px;   transform: rotate(-7deg);   z-index: 1; }
     .polaroid-2 { top: 60px;  left: 130px; transform: rotate(5deg);    z-index: 2; }
     .polaroid-3 { top: 165px; left: 18px;  transform: rotate(-3deg);   z-index: 3; }
@@ -587,15 +615,30 @@
         0 18px 54px oklch(0% 0 0 / 22%);
       z-index: 10;
     }
+
+    /* Mobile: exibe apenas 3 polaroids centralizados */
     @media (max-width: 899px) {
-      .polaroid-cluster { height: 460px; max-width: 310px; }
-      .polaroid { width: 188px; }
-      .polaroid img { width: 164px; height: 124px; }
-      .polaroid-1 { top: 8px;   left: 0px;   }
-      .polaroid-2 { top: 48px;  left: 96px;  }
-      .polaroid-3 { top: 134px; left: 12px;  }
-      .polaroid-4 { top: 200px; left: 104px; }
-      .polaroid-5 { top: 284px; left: 30px;  }
+      .campo-wrap { gap: 2.5rem; }
+      .polaroid-cluster {
+        height: 360px;
+        max-width: 260px;   /* ← largura do container mobile */
+        margin-inline: auto;
+        overflow: hidden;   /* recorta rotações que vazem */
+      }
+      .polaroid {
+        width: 210px;       /* ← largura do card mobile */
+      }
+      .polaroid img {
+        width: 186px;       /* largura do card - 24px */
+        height: 140px;      /* largura da foto × 0.752 */
+      }
+      /* 3 cards visíveis no mobile — angulação reduzida para não vazar */
+      .polaroid-1 { top: 12px;  left: 20px; transform: rotate(-4deg); z-index: 1; }
+      .polaroid-2 { top: 72px;  left: 30px; transform: rotate(3deg);  z-index: 2; }
+      .polaroid-3 { top: 158px; left: 18px; transform: rotate(-2deg); z-index: 3; }
+      /* Ocultar 4º e 5º no mobile */
+      .polaroid-4,
+      .polaroid-5 { display: none; }
     }
 
     /* ─── INTRO ──────────────────────────────────────────────────── */
