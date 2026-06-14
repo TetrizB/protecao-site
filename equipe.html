@@ -634,9 +634,23 @@
         height: 132px;
       }
       /* 3 cards em leque centrado — left: 50px centra um card de 200px em 300px */
-      .polaroid-1 { top: 8px;   left: 50px; transform: rotate(-5deg); z-index: 1; }
-      .polaroid-2 { top: 65px;  left: 50px; transform: rotate(4deg);  z-index: 2; }
-      .polaroid-3 { top: 152px; left: 50px; transform: rotate(-3deg); z-index: 3; }
+      .polaroid-1 {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-75%) rotate(-12deg);
+}
+
+.polaroid-2 {
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%) rotate(0deg);
+}
+
+.polaroid-3 {
+  top: 140px;
+  left: 50%;
+  transform: translateX(-25%) rotate(12deg);
+}
       /* Ocultar 4º e 5º no mobile */
       .polaroid-4,
       .polaroid-5 { display: none; }
@@ -1229,7 +1243,7 @@
 
         <div class="polaroid-cluster" data-reveal data-delay="200" aria-hidden="true">
           <div class="polaroid polaroid-1">
-            <img src="./assets/campo-incendio.jpg"
+            <img src="./assets/campo-incendio.jpeg"
                  alt="Treinamento de combate a incêndio — PROTEÇÃO"
                  loading="lazy" decoding="async">
             <span class="polaroid-label">Combate a incêndio</span>
