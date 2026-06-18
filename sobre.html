@@ -222,72 +222,73 @@
        ▸ Para remover a foto: delete o <div class="pilares-foto-col"> e troque
          .pilares-layout por apenas <div class="wrap"> sem grid
        ════════════════════════════════════════════════════════════ */
-    .valores-section { background: var(--gray-50); padding: 0 !important; overflow: hidden; }
-    .pilares-layout {
+    .valores-section {
+      background: var(--gray-950);
+      padding-block: clamp(4.5rem, 9vw, 7rem);
+      border-top: 1px solid oklch(18% 0 0);
+    }
+    .valores-header {
+      text-align: center;
+      margin-bottom: clamp(3rem, 6vw, 5rem);
+      max-width: 620px;
+      margin-inline: auto;
+    }
+    .valores-header h2 { color: var(--white); margin-bottom: 0.75rem; }
+    .valores-header p { color: var(--gray-400); font-size: 1rem; line-height: 1.75; }
+    .valores-grid {
       display: grid;
       grid-template-columns: 1fr;
-      min-height: 600px;
+      gap: 0;
+      border-top: 1px solid oklch(22% 0 0);
     }
-    @media (min-width: 900px) {
-      .pilares-layout { grid-template-columns: 420px 1fr; }
+    @media (min-width: 768px) {
+      .valores-grid { grid-template-columns: repeat(3, 1fr); border-top: none; }
     }
-    @media (min-width: 1200px) {
-      .pilares-layout { grid-template-columns: 480px 1fr; }
-    }
-    .pilares-foto-col {
-      position: relative;
-      min-height: 320px;
-      overflow: hidden;
-    }
-    .pilares-foto-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 30%; /* ← ajuste o foco vertical aqui */
-    }
-    .pilares-foto-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, oklch(8% 0 0 / 20%), transparent);
-    }
-    .pilares-content-col {
-      padding: clamp(3rem, 7vw, 5rem) clamp(2rem, 5vw, 4rem);
-    }
-    .valores-header { margin-bottom: clamp(2rem, 4vw, 3rem); max-width: 560px; }
-    .valores-header h2 { margin-bottom: 0.75rem; }
-    .valores-header p { color: var(--gray-600); font-size: 1rem; line-height: 1.75; }
     .valor-strip {
+      padding: clamp(2rem, 4vw, 2.75rem) clamp(1.5rem, 3vw, 2.25rem);
+      border-bottom: 1px solid oklch(22% 0 0);
       display: flex;
-      align-items: flex-start;
-      gap: 2rem;
-      padding: 2.5rem 0;
-      border-top: 1px solid var(--gray-150);
+      flex-direction: column;
+      gap: 1.25rem;
+      position: relative;
     }
-    .valor-strip:last-child { border-bottom: 1px solid var(--gray-150); }
+    @media (min-width: 768px) {
+      .valor-strip {
+        border-bottom: none;
+        border-right: 1px solid oklch(22% 0 0);
+      }
+      .valor-strip:last-child { border-right: none; }
+    }
+    .valor-strip::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 2px;
+      background: var(--green-500);
+      margin-bottom: 0.25rem;
+    }
     .valor-num {
       font-family: var(--fh);
-      font-size: clamp(4rem, 8vw, 7rem);
+      font-size: clamp(3.5rem, 7vw, 5.5rem);
       font-weight: 900;
-      line-height: 0.85;
-      color: var(--green-200);
-      flex-shrink: 0;
-      width: clamp(4rem, 8vw, 7rem);
-      text-align: right;
+      line-height: 1;
+      color: oklch(22% 0.06 148);
       user-select: none;
+      position: absolute;
+      top: clamp(1.5rem, 3vw, 2rem);
+      right: clamp(1.25rem, 2.5vw, 2rem);
+      letter-spacing: -0.04em;
     }
-    .valor-content { flex: 1; padding-top: 0.5rem; }
     .valor-content h3 {
       font-family: var(--fh);
-      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-size: clamp(1.375rem, 2.2vw, 1.875rem);
       font-weight: 900;
       text-transform: uppercase;
-      color: var(--gray-800);
-      line-height: 1;
-      margin-bottom: 0.875rem;
+      color: var(--white);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
     }
-    .valor-content p { color: var(--gray-600); font-size: 0.9375rem; line-height: 1.75; max-width: 560px; }
+    .valor-content p { color: var(--gray-400); font-size: 0.9rem; line-height: 1.78; }
 
     /* CLIENTE IDEAL */
     .cliente-section {
@@ -591,50 +592,36 @@
        e adicione class="wrap" no pai para retornar ao layout sem colunas
      ══════════════════════════════════════════════════════════════════════ -->
   <section class="valores-section" aria-labelledby="valores-heading">
-    <div class="pilares-layout">
+    <div class="wrap">
 
-      <!-- COLUNA DA FOTO — troque o src abaixo para mudar a imagem -->
-      <div class="pilares-foto-col">
-        <img
-          id="pilaresFoto"
-          class="pilares-foto-img"
-          src="https://images.unsplash.com/photo-1622612063021-116cc3407145?auto=format&fit=crop&w=800&q=80"
-          alt="Profissional de segurança do trabalho em campo com capacete e EPIs"
-          loading="lazy"
-        >
-        <div class="pilares-foto-overlay" aria-hidden="true"></div>
+      <div class="valores-header">
+        <span class="eyebrow eyebrow-light" data-reveal>Nossos Pilares</span>
+        <h2 class="display display-md" id="valores-heading" data-reveal data-delay="100">O que nos guia</h2>
+        <p data-reveal data-delay="200">Três compromissos que definem cada projeto, cada laudo e cada treinamento que entregamos.</p>
       </div>
 
-      <!-- COLUNA DO CONTEÚDO -->
-      <div class="pilares-content-col">
-        <div class="valores-header">
-          <span class="eyebrow" data-reveal>Nossos Pilares</span>
-          <h2 class="display display-md" id="valores-heading" data-reveal data-delay="100">O que nos guia</h2>
-          <p data-reveal data-delay="200">Três compromissos que definem cada projeto, cada laudo e cada treinamento que entregamos.</p>
-        </div>
-        <div role="list">
-          <article class="valor-strip" role="listitem" data-reveal>
-            <div class="valor-num" aria-hidden="true">1</div>
-            <div class="valor-content">
-              <h3>Conformidade Técnica</h3>
-              <p>Cada documento, laudo e programa entregue pela PROTEÇÃO é assinado por profissional habilitado, com Responsabilidade Técnica (RT) registrada no CREA-RO. Entregamos conformidade real — não checklist. Nossos documentos passam por auditorias do Ministério do Trabalho, eSocial, Corpo de Bombeiros e órgãos ambientais sem ressalvas.</p>
-            </div>
-          </article>
-          <article class="valor-strip" role="listitem" data-reveal data-delay="100">
-            <div class="valor-num" aria-hidden="true">2</div>
-            <div class="valor-content">
-              <h3>Parceiro Regional</h3>
-              <p>Conhecemos a realidade do interior amazônico — distâncias longas, logística desafiadora e especificidades do agronegócio, da mineração e da pecuária. Nossos profissionais vivem e trabalham na região, o que garante diagnósticos precisos e soluções adaptadas, não copiadas de grandes centros.</p>
-            </div>
-          </article>
-          <article class="valor-strip" role="listitem" data-reveal data-delay="200">
-            <div class="valor-num" aria-hidden="true">3</div>
-            <div class="valor-content">
-              <h3>Solução Completa</h3>
-              <p>Do PGR ao licenciamento ambiental, do PPCI ao laudo estrutural, da venda de EPI ao treinamento em plataforma própria: a PROTEÇÃO elimina a necessidade de contratar múltiplos fornecedores. Gestão integrada, responsabilidade única, resultado coerente.</p>
-            </div>
-          </article>
-        </div>
+      <div class="valores-grid" role="list">
+        <article class="valor-strip" role="listitem" data-reveal>
+          <div class="valor-num" aria-hidden="true">01</div>
+          <div class="valor-content">
+            <h3>Conformidade Técnica</h3>
+            <p>Cada documento, laudo e programa entregue pela PROTEÇÃO é assinado por profissional habilitado, com Responsabilidade Técnica (RT) registrada no CREA-RO. Entregamos conformidade real — não checklist. Nossos documentos passam por auditorias do Ministério do Trabalho, eSocial, Corpo de Bombeiros e órgãos ambientais sem ressalvas.</p>
+          </div>
+        </article>
+        <article class="valor-strip" role="listitem" data-reveal data-delay="150">
+          <div class="valor-num" aria-hidden="true">02</div>
+          <div class="valor-content">
+            <h3>Parceiro Regional</h3>
+            <p>Conhecemos a realidade do interior amazônico — distâncias longas, logística desafiadora e especificidades do agronegócio, da mineração e da pecuária. Nossos profissionais vivem e trabalham na região, o que garante diagnósticos precisos e soluções adaptadas, não copiadas de grandes centros.</p>
+          </div>
+        </article>
+        <article class="valor-strip" role="listitem" data-reveal data-delay="300">
+          <div class="valor-num" aria-hidden="true">03</div>
+          <div class="valor-content">
+            <h3>Solução Completa</h3>
+            <p>Do PGR ao licenciamento ambiental, do PPCI ao laudo estrutural, da venda de EPI ao treinamento em plataforma própria: a PROTEÇÃO elimina a necessidade de contratar múltiplos fornecedores. Gestão integrada, responsabilidade única, resultado coerente.</p>
+          </div>
+        </article>
       </div>
 
     </div>
