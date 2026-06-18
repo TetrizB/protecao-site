@@ -182,10 +182,12 @@
     .hero-equipe {
       position: relative;
       background: oklch(13% 0.09 145);
-      overflow: hidden;
       height: clamp(540px, 66vh, 840px);
       display: flex;
       align-items: center;
+    }
+    @media (min-width: 900px) {
+      .hero-equipe { overflow: hidden; }
     }
     .hero-equipe::before {
       content: ''; position: absolute; inset: 0; z-index: 0;
@@ -423,7 +425,6 @@
       .hero-equipe::after {
         background: linear-gradient(oklch(13% 0.09 145 / 94%) 0%, transparent 100%);
       }
-      .hero-equipe { overflow: visible; }
       .hero-content-wrap { height: auto; width: 100%; padding-block: 5rem 5.5rem; }
       .hero-left-col { max-width: 100%; padding-block: 0; }
       .hero-img-layer { display: none; }
