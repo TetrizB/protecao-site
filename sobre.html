@@ -343,7 +343,39 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: relative;
+      overflow: hidden;
     }
+    /* Grade técnica estilo blueprint */
+    .cliente-left::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background-image:
+        repeating-linear-gradient(
+          45deg,
+          oklch(100% 0 0 / 2.5%) 0px, oklch(100% 0 0 / 2.5%) 1px,
+          transparent 1px, transparent 28px
+        ),
+        linear-gradient(oklch(100% 0 0 / 4%) 1px, transparent 1px),
+        linear-gradient(90deg, oklch(100% 0 0 / 4%) 1px, transparent 1px);
+      background-size: 28px 28px, 56px 56px, 56px 56px;
+      pointer-events: none;
+    }
+    /* Glows verdes — glow principal no centro + acento no canto inferior */
+    .cliente-left::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 50% 60%,
+          oklch(37% 0.17 145 / 32%) 0%, transparent 100%),
+        radial-gradient(ellipse 40% 45% at 0% 105%,
+          oklch(54% 0.20 150 / 22%) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    /* Garante que o conteúdo fica acima dos efeitos */
+    .cliente-left > div { position: relative; z-index: 1; }
     .cliente-left .eyebrow { color: var(--green-300); }
     .cliente-left h2 { color: var(--white); margin-bottom: 1.25rem; }
     .cliente-left p { color: var(--gray-400); font-size: 0.9375rem; line-height: 1.8; }
